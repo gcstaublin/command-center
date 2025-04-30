@@ -1,0 +1,25 @@
+---
+import "../styles/global.css";
+const { text = "dude" } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+
+<div class="test">{text}</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  .test {
+    background-color: red;
+    color: yellow;
+
+    & + & {
+      margin-top: 30px;
+      background-color: blue;
+    }
+  }
+</style>
