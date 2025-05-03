@@ -1,0 +1,24 @@
+---
+import "../styles/global.css";
+
+const { accountTitle = "Name goes here" } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+
+<header>
+  <h1 class="title">{accountTitle}</h1>
+</header>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  .title {
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 800;
+  }
+</style>
