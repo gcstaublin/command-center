@@ -1,0 +1,219 @@
+---
+import "../styles/global.css";
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="card">
+  <div class="card-content">
+    <div class="card-header">
+      <span class="overline">OVERLINE</span>
+      <h2 class="project-title">Project Title</h2>
+      <p class="project-description">Project description goes here</p>
+    </div>
+
+    <div class="updates-section">
+      <div class="updates-header" id="updates-toggle">
+        <span class="updates-count">12 new updates</span>, last updated 30
+        minutes ago
+      </div>
+
+      <div class="updates-list" id="updates-list">
+        <ul>
+          <li>On Schedule, Grant S. added. Test zoom</li>
+          <li>Grant S. answered: What the deal?</li>
+          <li>Grant S. started an automatic check-in: What the deal?</li>
+          <li>On Card Table, Grant S. added: Rad Card</li>
+          <li>See all updates</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="team-members">
+        <div class="avatar">+23</div>
+      </div>
+      <div class="date">
+        <img src="pin-icon.svg" alt="Pin" class="pin-icon" />
+        <span>Jan. 29</span>
+      </div>
+    </div>
+    <div class="svg-test">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <g clip-path="url(#a)">
+          <path
+            fill="#999"
+            d="M6.17 9.34 9.54 3.5C8.38 2.21 7.99.97 8.34.36c1.08-1.87 11.25 4 10.17 5.88-.32.55-1.6.85-3.31.51l-3.38 5.85c1.22 1.19 1.66 2.34 1.13 3.26-.5.87-2.95.07-5.33-1.22v.01l-1.96 3.39c-.36.62-1.56 2.11-1.87 1.93-.31-.18.38-1.96.74-2.59l1.96-3.39s0-.01.01-.01c-2.31-1.41-4.22-3.14-3.72-4 .53-.91 1.75-1.1 3.39-.64Z"
+            opacity=".67"></path>
+        </g>
+        <defs>
+          <clipPath id="a">
+            <path fill="#fff" d="M0 0h20v20H0z"></path>
+          </clipPath>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="svg-test">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+        <path
+          stroke="#51C033"
+          d="M3 3.5h14A1.5 1.5 0 0 1 18.5 5v11a2.5 2.5 0 0 1-2.5 2.5H4A2.5 2.5 0 0 1 1.5 16V5A1.5 1.5 0 0 1 3 3.5Z"
+        ></path>
+        <path
+          fill="#51C033"
+          d="M6 7H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1ZM1 4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v1H1V4Z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</div>
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style>
+  .svg-test {
+    border: 1px solid green;
+    width: 40px;
+    height: 40px;
+  }
+  .card {
+    width: 100%;
+    /* max-width: 500px; */
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .card-content {
+    padding: 24px;
+  }
+
+  .card-header {
+    margin-bottom: 20px;
+  }
+
+  .overline {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .project-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+  }
+
+  .project-description {
+    font-size: 16px;
+    color: #4b5563;
+    margin-bottom: 16px;
+  }
+
+  .updates-section {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 16px;
+  }
+
+  .updates-header {
+    font-size: 14px;
+    color: #4b5563;
+    cursor: pointer;
+    padding: 8px 0;
+    user-select: none;
+  }
+
+  .updates-count {
+    color: #2563eb;
+    font-weight: 600;
+  }
+
+  .updates-list {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease-out,
+      opacity 0.3s ease-out,
+      margin 0.3s ease-out;
+    opacity: 0;
+    margin-top: 0;
+  }
+
+  .updates-list.active {
+    max-height: 300px;
+    opacity: 1;
+    margin-top: 12px;
+  }
+
+  .updates-list ul {
+    list-style-type: disc;
+    padding-left: 24px;
+  }
+
+  .updates-list li {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .team-members {
+    display: flex;
+  }
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #2563eb;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .date {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #6b7280;
+  }
+
+  .pin-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const updatesToggle = document.getElementById("updates-toggle");
+    const updatesList = document.getElementById("updates-list");
+
+    // Toggle updates list when clicking on the header
+    updatesToggle.addEventListener("click", function () {
+      updatesList.classList.toggle("active");
+    });
+  });
+</script>

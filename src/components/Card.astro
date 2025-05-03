@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+const { text = "dude" } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+
+<article class="card">
+  <div class="card__content">
+    <h5 class="card__overline">Overline</h5>
+    <h2 class="card__title">Title of card</h2>
+    <p class="card__description">Description of card</p>
+  </div>
+  <div class="card__people">
+    <div class="avatar"></div>
+  </div>
+  <div class="notification-dot">
+    <span class="notification-dot__text">10</span>
+  </div>
+</article>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --elevation-shadow-1: 0 2px 3px rgba(0, 0, 0, 0.25),
+      0 0 4px rgba(0, 0, 0, 0.2);
+    --elevation-shadow-2: 0 4px 8px rgba(0, 0, 0, 0.3),
+      0 0 8px rgba(0, 0, 0, 0.2);
+    --elevation-shadow-3: 0 16px 32px rgba(0, 0, 0, 0.3),
+      0 0 64px rgba(0, 0, 0, 0.2);
+  }
+  .card {
+    position: relative;
+    background-color: #fff;
+    /* border: 1px solid #666; */
+    border-radius: 12px;
+    /* aspect-ratio: 16/9; */
+    padding: 2rem;
+    /* font-size: clamp(1.3rem, 1.5vw, 1.7rem); */
+
+    margin-top: 40px;
+    /* box-shadow:
+      rgba(136, 116, 89, 0.1) 0px 0px 0px 1px,
+      rgba(136, 116, 89, 0.05) 0px -1px 1px 0px; */
+    box-shadow: var(--elevation-shadow-1);
+    display: grid;
+  }
+
+  .card__title {
+    font-size: 1.2em;
+  }
+
+  .card__description {
+    font-size: 1em;
+  }
+
+  .card__overline {
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .card__content {
+    grid-area: 1/1;
+  }
+
+  .card__people {
+    /* grid-area: 1/1; */
+    /* background-color: green; */
+    /* place-self: end end; */
+  }
+
+  .avatar {
+    width: 24px;
+    height: 24px;
+    background-color: black;
+    border-radius: 50%;
+  }
+
+  .notification-dot {
+    position: absolute;
+    inset-block-start: -0.5rem;
+    inset-inline-start: -0.5rem;
+    block-size: 1.75rem;
+    inline-size: 1.75rem;
+
+    background-color: rgb(253, 108, 68);
+    /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1); */
+    box-shadow: var(--elevation-shadow-1);
+
+    border-radius: 100%;
+    border: 1px solid hsl(33.3, 60%, 97.1%);
+    text-align: center;
+    display: grid;
+    align-items: center;
+  }
+
+  .notification-dot__text {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    /* display: none; */
+  }
+</style>
