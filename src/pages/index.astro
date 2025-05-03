@@ -12,6 +12,7 @@ import AvatarStack from "../components/AvatarStack.astro";
 import CardDate from "../components/CardDate.astro";
 import Resizer from "../components/Resizer.astro";
 import Header from "../components/Header.astro";
+import Panel from "../components/Panel.astro";
 ---
 
 <html lang="en">
@@ -30,34 +31,29 @@ import Header from "../components/Header.astro";
       <Header />
       <Resizer>
         <Fragment slot="pinned">
-          <CardHorizontal />
+          <Card />
+          <Card />
+          <Card />
         </Fragment>
 
         <Fragment slot="recents">
-          <CardHorizontal />
-          <CardHorizontal />
-          <CardHorizontal />
+          <div class="grid--vertical">
+            <CardHorizontal />
+            <CardHorizontal />
+            <CardHorizontal />
+          </div>
+        </Fragment>
+
+        <Fragment slot="aside">
+          <div class="grid--vertical grid--vertical--large">
+            <Panel><Card /></Panel>
+            <Panel><CardDate status="risk" /></Panel>
+            <Panel><Card /></Panel>
+          </div>
         </Fragment>
 
         <Fragment slot="playground">
-          <section class="dump">
-            <Card />
-          </section>
-
-          <section class="dump">
-            <CardHorizontal />
-            <CardHorizontal />
-          </section>
-
-          <section class="dump">
-            <Avatar imgSrc={grant} />
-            <Avatar imgSrc={murs} />
-            <AvatarStack />
-            <AvatarStack number="88" />
-
-            <CardDate />
-            <CardDate status="risk" />
-          </section>
+          <section class="dump">playground</section>
         </Fragment>
       </Resizer>
     </section>
@@ -76,6 +72,15 @@ import Header from "../components/Header.astro";
         > * + * {
           margin-top: 40px;
         }
+      }
+
+      .grid--vertical {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .grid--vertical--large {
+        gap: 3rem;
       }
     </style>
   </body>

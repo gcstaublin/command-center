@@ -7,11 +7,11 @@ import "../styles/global.css";
 {/* ================================== */}
 <div class="container">
   <div class="sidebar" id="sidebar">
-    <h2>Sidebar</h2>
     <div class="projects__container">
-      <div>
+      <div class="projects--pinned">
         <slot name="pinned" />
       </div>
+
       <div>
         <slot name="recents" />
       </div>
@@ -19,7 +19,9 @@ import "../styles/global.css";
   </div>
   <div class="resizer" id="resizer"></div>
   <div class="main-content">
-    <h1>Main Content</h1>
+    <slot name="aside" />
+
+    <!-- <h1>Main Content</h1>
     <p>
       Drag the divider between the sidebar and this main content area to resize
       both sections.
@@ -43,7 +45,7 @@ import "../styles/global.css";
       nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl
       nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl
       aliquam nisl, eget ultricies nisl nisl eget nisl.
-    </p>
+    </p> -->
     <slot name="playground" />
   </div>
 </div>
@@ -58,6 +60,14 @@ import "../styles/global.css";
   .projects__container {
     display: grid;
     gap: 100px;
+    padding-inline: 3rem;
+    padding-block: 3rem;
+  }
+
+  .projects--pinned {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
   }
   .container {
     display: flex;
@@ -75,7 +85,7 @@ import "../styles/global.css";
     border-radius: var(--resizer-radius);
 
     /* overflow-y: auto; */
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
     border-right: 1px solid #e0e0e0;
   }
@@ -111,24 +121,10 @@ import "../styles/global.css";
   .main-content {
     flex: 1;
     /* overflow-y: auto; */
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: var(--fill-resizer-bg);
-    border-radius: var(--resizer-radius);
-  }
-
-  h1,
-  h2 {
-    margin-top: 0;
-  }
-
-  .nav-item {
-    padding: 10px 0;
-    border-bottom: 1px solid #e0e0e0;
-  }
-
-  .nav-item:last-child {
-    border-bottom: none;
+    /* padding: 20px; */
+    /* box-sizing: border-box; */
+    /* background-color: var(--fill-resizer-bg); */
+    /* border-radius: var(--resizer-radius); */
   }
 
   @media (max-width: 768px) {
