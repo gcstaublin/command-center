@@ -1,16 +1,14 @@
 ---
 import "../styles/global.css";
 
-const { imgSrc, altText = "", ...attrs } = Astro.props;
+const { imgSrc, altText, ...attrs } = Astro.props;
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
 
-<div class="avatar">
-  <img class="avatar__img" src={imgSrc.src} alt={altText} />
-</div>
+<img class="avatar" src={imgSrc.src} alt={altText} />
 
 {/* ================================== */}
 {/* Style                              */}
@@ -27,15 +25,12 @@ const { imgSrc, altText = "", ...attrs } = Astro.props;
 
   .avatar {
     display: inline-block;
+    block-size: var(--avatar-size);
+    inline-size: var(--avatar-size);
+    object-fit: cover;
+    overflow: hidden;
     border-radius: 100%;
     background-color: var(--avatar-surface-color);
     border: var(--avatar-border-width) solid var(--avatar-surface-color);
-    overflow: hidden;
-  }
-
-  .avatar__img {
-    object-fit: cover;
-    block-size: var(--avatar-size);
-    inline-size: var(--avatar-size);
   }
 </style>
