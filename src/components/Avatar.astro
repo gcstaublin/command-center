@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+const { imgSrc, altText = "", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+
+<div class="avatar">
+  <img class="avatar__img" src={imgSrc.src} alt={altText} />
+</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+
+<style is:global>
+  /* Something to thing about for the future */
+  /* avatars seem to run in 4 different sizes throughout: 24, 32, 48, 128 */
+  :root {
+    --avatar-surface-color: #fff;
+    --avatar-border-width: 2px;
+    --avatar-size: 48px;
+  }
+
+  .avatar {
+    display: inline-block;
+    border-radius: 100%;
+    background-color: var(--avatar-surface-color);
+    border: var(--avatar-border-width) solid var(--avatar-surface-color);
+    overflow: hidden;
+  }
+
+  .avatar__img {
+    object-fit: cover;
+    block-size: var(--avatar-size);
+    inline-size: var(--avatar-size);
+  }
+</style>
