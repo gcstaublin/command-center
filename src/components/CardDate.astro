@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+
+const { status = "none" } = Astro.props;
+
+import Calendar from "../svg/calendar.svg";
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<!-- <div class:list={["cols--12 infoItem__item", cssClass]}> -->
+<div class:list={["card-date", `card-date__status--${status}`]}>
+  <div class="card-date__icon">
+    <Calendar />
+  </div>
+  <span class="card-date__text">Jan. 29</span>
+</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --card-date-gap: 4px;
+    --card-date-status: currentColor;
+    --card-date-status-size: 14px;
+    --card-date-color: #747575;
+    --card-date-font-size: 12px;
+    --card-date-font-weight: 500;
+  }
+
+  .card-date {
+    display: flex;
+    gap: var(--card-date-gap);
+    align-items: center;
+    color: var(--card-date-color);
+  }
+  .card-date__icon {
+    color: var(--card-date-status);
+    block-size: var(--card-date-status-size);
+    inline-size: var(--card-date-status-size);
+  }
+
+  .card-date__text {
+    font-size: var(--card-date-font-size);
+    font-weight: var(--card-date-font-weight);
+    line-height: 1;
+  }
+
+  .card-date__status--none {
+    --card-date-status: currentColor;
+  }
+
+  .card-date__status--on-track {
+    --card-date-status: rgb(25, 135, 77);
+  }
+  .card-date__status--risk {
+    --card-date-status: rgb(230, 179, 2);
+  }
+  .card-date__status--concerned {
+    --card-date-status: rgb(207, 67, 46);
+  }
+</style>

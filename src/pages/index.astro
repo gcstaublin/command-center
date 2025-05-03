@@ -3,6 +3,8 @@ import "../styles/global.css";
 
 import grant from "../images/grant_mug.png";
 import murs from "../images/murs_mug.png";
+
+import Rad from "../svg/calendar.svg";
 // import grant from "https://pbs.twimg.com/profile_images/271206022/mega_400x400.jpg";
 
 import Card from "../components/Card.astro";
@@ -10,6 +12,7 @@ import BaseNav from "../components/BaseNav.astro";
 import CardHorizontal from "../components/CardHorizontal.astro";
 import Avatar from "../components/Avatar.astro";
 import AvatarStack from "../components/AvatarStack.astro";
+import CardDate from "../components/CardDate.astro";
 ---
 
 <html lang="en">
@@ -37,6 +40,11 @@ import AvatarStack from "../components/AvatarStack.astro";
       <Avatar imgSrc={murs} />
       <AvatarStack />
       <AvatarStack number="88" />
+      <div class="rad-dude">
+        <Rad />
+      </div>
+      <CardDate />
+      <CardDate status="risk" />
     </section>
 
     {/* ================================== */}
@@ -49,6 +57,12 @@ import AvatarStack from "../components/AvatarStack.astro";
         & + & {
           margin-top: 40px;
         }
+      }
+
+      .rad-dude {
+        width: 40px;
+        border: 1px solid green;
+        color: red;
       }
     </style>
   </body>
