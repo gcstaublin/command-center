@@ -7,13 +7,13 @@ const { text = "dude" } = Astro.props;
 {/* HTML Structure                     */}
 {/* ================================== */}
 
-<article class="card">
-  <div class="card__content">
-    <h5 class="card__overline">Overline</h5>
-    <h2 class="card__title">Title of card</h2>
-    <p class="card__description">Description of card</p>
+<article class="cardTest">
+  <div class="cardTest__content">
+    <h5 class="cardTest__overline">Overline</h5>
+    <h2 class="cardTest__title">Title of cardTest</h2>
+    <p class="cardTest__description">Description of cardTest</p>
   </div>
-  <div class="card__people">
+  <div class="cardTest__people">
     <div class="avatar"></div>
   </div>
   <div class="notification-dot">
@@ -33,7 +33,7 @@ const { text = "dude" } = Astro.props;
     --elevation-shadow-3: 0 16px 32px rgba(0, 0, 0, 0.3),
       0 0 64px rgba(0, 0, 0, 0.2);
   }
-  .card {
+  .cardTest {
     position: relative;
     background-color: #fff;
     /* border: 1px solid #666; */
@@ -50,26 +50,26 @@ const { text = "dude" } = Astro.props;
     display: grid;
   }
 
-  .card__title {
+  .cardTest__title {
     font-size: 1.2em;
   }
 
-  .card__description {
+  .cardTest__description {
     font-size: 1em;
   }
 
-  .card__overline {
+  .cardTest__overline {
     text-transform: uppercase;
     font-size: 0.75em;
     font-weight: 500;
     letter-spacing: 0.05em;
   }
 
-  .card__content {
+  .cardTest__content {
     grid-area: 1/1;
   }
 
-  .card__people {
+  .cardTest__people {
     /* grid-area: 1/1; */
     /* background-color: green; */
     /* place-self: end end; */

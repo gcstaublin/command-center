@@ -1,5 +1,8 @@
 ---
 import "../styles/global.css";
+
+import Pin from "../svg/Pin.svg";
+
 import AvatarStack from "./AvatarStack.astro";
 import CardDate from "./CardDate.astro";
 ---
@@ -8,11 +11,11 @@ import CardDate from "./CardDate.astro";
 {/* HTML Structure                     */}
 {/* ================================== */}
 <div class="card">
-  <div class="card-content">
-    <div class="card-header">
-      <span class="overline">OVERLINE</span>
-      <h2 class="project-title">Project Title</h2>
-      <p class="project-description">Project description goes here</p>
+  <div class="card-content card__pad">
+    <div class="card__header">
+      <span class="card__overline">OVERLINExxxx</span>
+      <h2 class="card__title">Project Title</h2>
+      <p class="card__description">Project description goes here</p>
     </div>
 
     <!-- <div class="updates-section">
@@ -30,28 +33,14 @@ import CardDate from "./CardDate.astro";
         </ul>
       </div>
     </div> -->
-    <AvatarStack number="88" />
-    <div class="card-footer">
-      <div class="updates-section">
-        <div class="updates-header" id="updates-toggle">
-          <span class="updates-count">12 new updates</span>, last updated 30
-          minutes ago
-        </div>
-        <div class="updates-list" id="updates-list">
-          <ul>
-            <li>On Schedule, Grant S. added. Test zoom</li>
-            <li>Grant S. answered: What the deal?</li>
-            <li>Grant S. started an automatic check-in: What the deal?</li>
-            <li>On Card Table, Grant S. added: Rad Card</li>
-            <li>See all updates</li>
-          </ul>
-        </div>
-      </div>
-      <div class="date-container">
-        <CardDate />
-      </div>
+    <div class="card__controls">
+      <AvatarStack number="88" />
+      <button class="card__pin">
+        <Pin />
+      </button>
     </div>
-    <div class="svg-test">
+
+    <!-- <div class="svg-test">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
         <g clip-path="url(#a)">
           <path
@@ -65,69 +54,94 @@ import CardDate from "./CardDate.astro";
           </clipPath>
         </defs>
       </svg>
+    </div> -->
+  </div>
+  <div class="card-footer card__pad">
+    <div class="updates-section">
+      <div class="updates-header js-update-toggle" id="updates-toggle">
+        <span class="updates-count">12 new updates</span>, last updated 30
+        minutes ago
+      </div>
+      <div class="updates-list js-updates-list" id="updates-list">
+        <ul>
+          <li>On Schedule, Grant S. added. Test zoom</li>
+          <li>Grant S. answered: What the deal?</li>
+          <li>Grant S. started an automatic check-in: What the deal?</li>
+          <li>On Card Table, Grant S. added: Rad Card</li>
+          <li>See all updates</li>
+        </ul>
+      </div>
     </div>
-
-    <div class="svg-test">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-        <path
-          stroke="#51C033"
-          d="M3 3.5h14A1.5 1.5 0 0 1 18.5 5v11a2.5 2.5 0 0 1-2.5 2.5H4A2.5 2.5 0 0 1 1.5 16V5A1.5 1.5 0 0 1 3 3.5Z"
-        ></path>
-        <path
-          fill="#51C033"
-          d="M6 7H5a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1ZM1 4a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v1H1V4Z"
-        ></path>
-      </svg>
+    <div class="date-container">
+      <CardDate />
     </div>
   </div>
 </div>
 {/* ================================== */}
 {/* Style                              */}
 {/* ================================== */}
-<style>
+<style is:global>
+  :root {
+    --card-pad-inline: 20px;
+    --card-pad-block: 20px;
+    --card-fill-meta: rgba(0, 0, 0, 0.04);
+    --card-fill-surface: #fff;
+    --card-color: #2a373e;
+    --card-color-dim: #747575;
+    --card-fill-pin: var(--card-color-dim);
+  }
   .svg-test {
     border: 1px solid green;
     width: 40px;
     height: 40px;
   }
+
+  .card__pad {
+    padding-block: var(--card-pad-block);
+    padding-inline: var(--card-pad-inline);
+  }
+
   .card {
     width: 100%;
     /* max-width: 500px; */
-    background-color: white;
+    background-color: var(--card-fill-surface);
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    position: relative;
   }
 
   .card-content {
-    padding: 24px;
+    /* padding: 24px; */
   }
 
   .card-header {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
 
-  .overline {
+  .card__overline {
     display: block;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
-    color: #6b7280;
-    margin-bottom: 8px;
+    color: var(--card-color-dim);
+    /* margin-bottom: 8px; */
     letter-spacing: 0.05em;
   }
 
-  .project-title {
-    font-size: 24px;
+  .card__title {
+    font-size: 16px;
     font-weight: 700;
-    color: #111827;
-    margin-bottom: 8px;
+    color: var(--card-color);
+    /* color: #111827; */
+    /* margin-bottom: 8px; */
   }
 
-  .project-description {
-    font-size: 16px;
-    color: #4b5563;
-    margin-bottom: 16px;
+  .card__description {
+    font-size: 14px;
+    color: var(--card-color);
+    /* color: #4b5563; */
+    /* margin-bottom: 16px; */
   }
 
   .updates-section {
@@ -138,7 +152,7 @@ import CardDate from "./CardDate.astro";
   }
 
   .updates-header {
-    border: 1px solid;
+    /* border: 1px solid; */
     font-size: 14px;
     color: #4b5563;
     cursor: pointer;
@@ -184,18 +198,44 @@ import CardDate from "./CardDate.astro";
   }
 
   .card-footer {
+    --card-pad-block: 10px;
+
     position: relative;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
-    background-color: pink;
+    background-color: var(--card-fill-meta);
   }
 
   .date-container {
-    border: 1px solid;
+    /* border: 1px solid; */
     position: absolute;
-    inset-inline-end: 0;
-    inset-block-start: 0;
+    inset-inline-end: var(--card-pad-inline);
+    inset-block-start: var(--card-pad-block);
+    margin-block-start: 4px; /* hack to visually align date with updates. fix this */
+  }
+
+  .card__controls {
+    /* border: 1px solid green; */
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    inset-inline-end: var(--card-pad-inline);
+    inset-block-start: var(--card-pad-block);
+  }
+
+  .card__pin {
+    color: var(--card-fill-pin);
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    /* border: 1px solid green; */
+    &:hover {
+      color: red;
+    }
   }
 
   /* .team-members {
@@ -221,12 +261,16 @@ import CardDate from "./CardDate.astro";
 {/* ================================== */}
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const updatesToggle = document.getElementById("updates-toggle");
-    const updatesList = document.getElementById("updates-list");
+    const updateToggles = document.querySelectorAll(".js-update-toggle");
 
-    // Toggle updates list when clicking on the header
-    updatesToggle.addEventListener("click", function () {
-      updatesList.classList.toggle("active");
+    updateToggles.forEach((toggle) => {
+      toggle.addEventListener("click", () => {
+        const updatesList = toggle.nextElementSibling;
+
+        if (updatesList && updatesList.classList.contains("js-updates-list")) {
+          updatesList.classList.toggle("active");
+        }
+      });
     });
   });
 </script>

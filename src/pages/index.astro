@@ -33,6 +33,7 @@ import CardDate from "../components/CardDate.astro";
 
     <section class="dump">
       <CardHorizontal />
+      <CardHorizontal />
     </section>
 
     <section class="dump">
@@ -55,6 +56,10 @@ import CardDate from "../components/CardDate.astro";
         padding: 4rem;
 
         & + & {
+          margin-top: 40px;
+        }
+
+        > * + * {
           margin-top: 40px;
         }
       }
