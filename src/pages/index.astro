@@ -84,6 +84,17 @@ import Panel from "../components/Panel.astro";
         margin-inline: auto;
         inline-size: 100%;
         max-inline-size: 400px;
+        position: relative;
+
+        &::before {
+          content: "For placement only";
+          position: absolute;
+          top: 50%;
+          left: 25%;
+          font-size: 12px;
+          background-color: rgba(0, 0, 0, 0.6);
+          padding-inline: 2rem;
+        }
       }
     </style>
   </body>
