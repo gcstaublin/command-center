@@ -1,5 +1,18 @@
 ---
 import "../styles/global.css";
+
+import grant from "../images/grant_mug.png";
+import murs from "../images/murs_mug.png";
+
+import Card from "../components/Card.astro";
+import BaseNav from "../components/BaseNav.astro";
+import CardHorizontal from "../components/CardHorizontal.astro";
+import Avatar from "../components/Avatar.astro";
+import AvatarStack from "../components/AvatarStack.astro";
+import CardDate from "../components/CardDate.astro";
+import Resizer from "../components/Resizer.astro";
+import Header from "../components/Header.astro";
+import Panel from "../components/Panel.astro";
 ---
 
 <html lang="en">
@@ -7,10 +20,68 @@ import "../styles/global.css";
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
     <meta name="generator" content={Astro.generator} />
     <title>Command Center</title>
   </head>
   <body>
-    <h1>The Command Center</h1>
+    <BaseNav />
+
+    <section class="dump">
+      <Header />
+      <Resizer>
+        <Fragment slot="pinned">
+          <Card />
+          <Card />
+          <Card />
+        </Fragment>
+
+        <Fragment slot="recents">
+          <div class="grid--vertical">
+            <CardHorizontal />
+            <CardHorizontal />
+            <CardHorizontal />
+          </div>
+        </Fragment>
+
+        <Fragment slot="aside">
+          <div class="grid--vertical grid--vertical--large">
+            <Panel><Card /></Panel>
+            <Panel><CardDate status="risk" /></Panel>
+            <Panel><Card /></Panel>
+          </div>
+        </Fragment>
+
+        <Fragment slot="playground">
+          <section class="dump">playground</section>
+        </Fragment>
+      </Resizer>
+    </section>
+
+    {/* ================================== */}
+    {/* Style                              */}
+    {/* ================================== */}
+    <style is:global>
+      .dump {
+        padding: 4rem;
+
+        & + & {
+          margin-top: 40px;
+        }
+
+        > * + * {
+          margin-top: 40px;
+        }
+      }
+
+      .grid--vertical {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .grid--vertical--large {
+        gap: 3rem;
+      }
+    </style>
   </body>
 </html>

@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="panel">
+  <slot />
+</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  .panel {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    min-height: 400px;
+    padding-inline: 3rem;
+    padding-block: 3rem;
+  }
+</style>

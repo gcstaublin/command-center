@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+
+const { number, ...attrs } = Astro.props;
+
+import grant from "../images/grant_mug.png";
+import murs from "../images/murs_mug.png";
+import ad from "../images/ad_mug.png";
+import annie from "../images/annie_mug.png";
+import mega from "../images/mega_mug.png";
+import upside from "../images/upside_mug.png";
+import wilco from "../images/wilco_mug.png";
+import bw from "../images/bw_mug.png";
+
+import Avatar from "./Avatar.astro";
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="avatar-stack">
+  <div class="avatar-stack__avatars">
+    <Avatar imgSrc={grant} altText="Grant S" />
+    <Avatar imgSrc={wilco} altText="Jeff T" />
+    <Avatar imgSrc={murs} altText="Murs" />
+    <Avatar imgSrc={mega} altText="Megadeth" />
+    <Avatar imgSrc={upside} altText="Weird G" />
+    <Avatar imgSrc={ad} altText="Andy D" />
+    <Avatar imgSrc={annie} altText="Annie" />
+    <Avatar imgSrc={bw} altText="Bill W" />
+  </div>
+  {number && <span class="avatar__number">+{number}</span>}
+</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --avatar-stack-gap: 0.5rem;
+    --avatar-stack-overlap: -4px;
+    --avatar-stack-color: #7f7f7f;
+    --avatar-stack-font-size: 14px;
+  }
+
+  .avatar-stack {
+    --avatar-size: 24px;
+
+    display: flex;
+    align-items: center;
+    gap: var(--avatar-stack-gap);
+  }
+
+  .avatar-stack__avatars {
+    display: flex;
+    * + * {
+      margin-inline-start: var(--avatar-stack-overlap);
+    }
+  }
+
+  .avatar__number {
+    font-size: var(--avatar-stack-font-size);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--avatar-stack-color);
+  }
+</style>
