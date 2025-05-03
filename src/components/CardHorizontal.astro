@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import AvatarStack from "./AvatarStack.astro";
 ---
 
 {/* ================================== */}
@@ -31,9 +32,7 @@ import "../styles/global.css";
     </div>
 
     <div class="card-footer">
-      <div class="team-members">
-        <div class="avatar">+23</div>
-      </div>
+      <AvatarStack number="88" />
       <div class="date">
         <img src="pin-icon.svg" alt="Pin" class="pin-icon" />
         <span>Jan. 29</span>
@@ -174,19 +173,6 @@ import "../styles/global.css";
 
   .team-members {
     display: flex;
-  }
-
-  .avatar {
-    width: 32px;
-    height: 32px;
-    background-color: #2563eb;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 12px;
-    font-weight: 600;
   }
 
   .date {

@@ -1,9 +1,15 @@
 ---
 import "../styles/global.css";
 
+import grant from "../images/grant_mug.png";
+import murs from "../images/murs_mug.png";
+// import grant from "https://pbs.twimg.com/profile_images/271206022/mega_400x400.jpg";
+
 import Card from "../components/Card.astro";
 import BaseNav from "../components/BaseNav.astro";
 import CardHorizontal from "../components/CardHorizontal.astro";
+import Avatar from "../components/Avatar.astro";
+import AvatarStack from "../components/AvatarStack.astro";
 ---
 
 <html lang="en">
@@ -25,18 +31,25 @@ import CardHorizontal from "../components/CardHorizontal.astro";
     <section class="dump">
       <CardHorizontal />
     </section>
+
+    <section class="dump">
+      <Avatar imgSrc={grant} />
+      <Avatar imgSrc={murs} />
+      <AvatarStack />
+      <AvatarStack number="88" />
+    </section>
+
+    {/* ================================== */}
+    {/* Style                              */}
+    {/* ================================== */}
+    <style is:global>
+      .dump {
+        padding: 4rem;
+
+        & + & {
+          margin-top: 40px;
+        }
+      }
+    </style>
   </body>
 </html>
-
-{/* ================================== */}
-{/* Style                              */}
-{/* ================================== */}
-<style is:global>
-  .dump {
-    padding: 4rem;
-
-    & + & {
-      margin-top: 40px;
-    }
-  }
-</style>
