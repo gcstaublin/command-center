@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import AvatarStack from "./AvatarStack.astro";
+import CardDate from "./CardDate.astro";
 ---
 
 {/* ================================== */}
@@ -14,12 +15,11 @@ import AvatarStack from "./AvatarStack.astro";
       <p class="project-description">Project description goes here</p>
     </div>
 
-    <div class="updates-section">
+    <!-- <div class="updates-section">
       <div class="updates-header" id="updates-toggle">
         <span class="updates-count">12 new updates</span>, last updated 30
         minutes ago
       </div>
-
       <div class="updates-list" id="updates-list">
         <ul>
           <li>On Schedule, Grant S. added. Test zoom</li>
@@ -29,13 +29,26 @@ import AvatarStack from "./AvatarStack.astro";
           <li>See all updates</li>
         </ul>
       </div>
-    </div>
-
+    </div> -->
+    <AvatarStack number="88" />
     <div class="card-footer">
-      <AvatarStack number="88" />
-      <div class="date">
-        <img src="pin-icon.svg" alt="Pin" class="pin-icon" />
-        <span>Jan. 29</span>
+      <div class="updates-section">
+        <div class="updates-header" id="updates-toggle">
+          <span class="updates-count">12 new updates</span>, last updated 30
+          minutes ago
+        </div>
+        <div class="updates-list" id="updates-list">
+          <ul>
+            <li>On Schedule, Grant S. added. Test zoom</li>
+            <li>Grant S. answered: What the deal?</li>
+            <li>Grant S. started an automatic check-in: What the deal?</li>
+            <li>On Card Table, Grant S. added: Rad Card</li>
+            <li>See all updates</li>
+          </ul>
+        </div>
+      </div>
+      <div class="date-container">
+        <CardDate />
       </div>
     </div>
     <div class="svg-test">
@@ -118,16 +131,18 @@ import AvatarStack from "./AvatarStack.astro";
   }
 
   .updates-section {
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e5e7eb;
-    padding-bottom: 16px;
+    /* margin-bottom: 20px; */
+    /* border-bottom: 1px solid #e5e7eb; */
+    /* padding-bottom: 16px; */
+    flex: 1;
   }
 
   .updates-header {
+    border: 1px solid;
     font-size: 14px;
     color: #4b5563;
     cursor: pointer;
-    padding: 8px 0;
+    /* padding: 8px 0; */
     user-select: none;
   }
 
@@ -145,12 +160,15 @@ import AvatarStack from "./AvatarStack.astro";
       margin 0.3s ease-out;
     opacity: 0;
     margin-top: 0;
+    padding-block-start: 0;
   }
 
   .updates-list.active {
     max-height: 300px;
+    /* max-height: auto; */
     opacity: 1;
     margin-top: 12px;
+    /* padding-block-start: 40px; */
   }
 
   .updates-list ul {
@@ -166,27 +184,36 @@ import AvatarStack from "./AvatarStack.astro";
   }
 
   .card-footer {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
+    background-color: pink;
   }
 
-  .team-members {
+  .date-container {
+    border: 1px solid;
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+  }
+
+  /* .team-members {
     display: flex;
-  }
+  } */
 
-  .date {
+  /* .date {
     display: flex;
     align-items: center;
     font-size: 14px;
     color: #6b7280;
-  }
+  } */
 
-  .pin-icon {
+  /* .pin-icon {
     width: 16px;
     height: 16px;
     margin-right: 4px;
-  }
+  } */
 </style>
 
 {/* ================================== */}
