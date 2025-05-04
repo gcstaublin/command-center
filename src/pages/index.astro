@@ -10,6 +10,7 @@ import CardDate from "../components/CardDate.astro";
 import Resizer from "../components/Resizer.astro";
 import Header from "../components/Header.astro";
 import Panel from "../components/Panel.astro";
+import Filter from "../components/Filter.astro";
 ---
 
 <html lang="en">
@@ -43,7 +44,10 @@ import Panel from "../components/Panel.astro";
 
         <Fragment slot="aside">
           <div class="grid--vertical grid--vertical--large">
-            <Panel><Card /></Panel>
+            <Panel>
+              <Filter />
+              <Card />
+            </Panel>
             <Panel><CardDate status="risk" /></Panel>
             <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
           </div>
