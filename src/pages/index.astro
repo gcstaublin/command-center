@@ -15,7 +15,8 @@ import SectionHeader from "../components/SectionHeader.astro";
 import CardFrame from "../components/CardFrame.astro";
 import CardContent from "../components/CardContent.astro";
 import StackContent from "../components/StackContent.astro";
-import Grid from "../components/Grid.astro";
+import LayoutGrid from "../components/LayoutGrid.astro";
+import LayoutStack from "../components/LayoutStack.astro";
 ---
 
 <html lang="en">
@@ -32,23 +33,26 @@ import Grid from "../components/Grid.astro";
 
     <section class="dump">
       <Header />
-      <Grid>
-        <CardFrame isPinned>
-          <CardContent />
-        </CardFrame>
-        <CardFrame isStack>
-          <StackContent />
-        </CardFrame>
-        <CardFrame>
-          <CardContent />
-        </CardFrame>
-        <CardFrame>
-          <CardContent />
-        </CardFrame>
-        <CardFrame>
-          <CardContent />
-        </CardFrame>
-      </Grid>
+      <section class="top-area">
+        <LayoutGrid>
+          <CardFrame isPinned>
+            <CardContent />
+          </CardFrame>
+          <CardFrame isStack>
+            <StackContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+        </LayoutGrid>
+      </section>
+
       <Resizer>
         <Fragment slot="pinned">
           <CardFrame>
@@ -63,11 +67,23 @@ import Grid from "../components/Grid.astro";
         </Fragment>
 
         <Fragment slot="recents">
-          <div class="grid--vertical">
+          <!-- <div class="grid--vertical">
             <CardHorizontal />
             <CardHorizontal />
             <CardHorizontal />
-          </div>
+          </div> -->
+          <LayoutStack>
+            <LayoutStack>
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+            </LayoutStack>
+            <LayoutStack>
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+            </LayoutStack>
+          </LayoutStack>
         </Fragment>
 
         <Fragment slot="aside">
@@ -136,6 +152,11 @@ import Grid from "../components/Grid.astro";
             background-color: rgba(0, 0, 0, 0.6);
             padding-inline: 2rem;
           }
+        }
+
+        .top-area {
+          max-inline-size: 80%;
+          margin-inline: auto;
         }
       </style>
     </section>

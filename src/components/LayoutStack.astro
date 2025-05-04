@@ -1,12 +1,12 @@
 ---
 import "../styles/global.css";
-const { maxCols = "3", ...attrs } = Astro.props;
+const { title = "I am a title", ...attrs } = Astro.props;
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<div class="grid" data-max-cols={maxCols}>
+<div class="l-stack">
   <slot />
 </div>
 
@@ -14,22 +14,10 @@ const { maxCols = "3", ...attrs } = Astro.props;
 {/* CSS Style                          */}
 {/* ================================== */}
 <style is:global>
-  :root {
-    --grid-gap: 1rem;
-  }
-
-  .grid {
-    display: grid;
+  .l-stack {
+    display: flex;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: 2px solid black;
-  }
-
-  .test {
-    --grid-gap: 4rem;
-    > div {
-      background-color: red;
-    }
+    flex-direction: column;
   }
 </style>
 
