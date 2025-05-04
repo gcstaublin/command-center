@@ -1,12 +1,23 @@
 ---
 import "../styles/global.css";
-const { title = "I am a title", hasRule, ...attrs } = Astro.props;
+const {
+  title = "I am a title",
+  hasRule,
+  align = "center",
+  ...attrs
+} = Astro.props;
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<h3 class:list={["section-header", { "section-header--has-rule": hasRule }]}>
+<h3
+  class:list={[
+    "section-header",
+    { "section-header--has-rule": hasRule },
+    `section-header--align-${align}`,
+  ]}
+>
   <span class="section-header__title">{title}</span>
 </h3>
 
@@ -29,6 +40,10 @@ const { title = "I am a title", hasRule, ...attrs } = Astro.props;
     font-size: var(--section-header-size);
     font-weight: var(--section-header-weight);
     text-align: center;
+  }
+
+  .section-header--align-left {
+    text-align: left;
   }
 
   .section-header--has-rule {
