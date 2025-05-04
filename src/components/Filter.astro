@@ -1,0 +1,371 @@
+---
+import "../styles/global.css";
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<!-- Filter Button -->
+<button class="filter-button" id="filter-trigger">
+  <svg
+    class="filter-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 16 16"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+  >
+    <path d="M1 4h14M3 8h10M5 12h6"></path>
+  </svg>
+  Filter
+</button>
+
+<!-- Filter Popover -->
+<div id="filter-popover" popover>
+  <div class="popover-header">
+    <h3 class="popover-title">Filter</h3>
+    <button class="close-button" id="close-popover">×</button>
+  </div>
+
+  <div class="popover-content">
+    <h4 class="section-title">Events</h4>
+    <p class="section-subtitle">Activity you want to see on your feed</p>
+
+    <div class="checkbox-list">
+      <!-- Announcements -->
+      <div class="checkbox-item">
+        <input type="checkbox" id="announcements" checked />
+        <div class="checkbox-content">
+          <label for="announcements" class="checkbox-label">
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z"
+              ></path>
+              <path d="M2 7h12"></path>
+            </svg>
+            Announcements
+          </label>
+          <p class="checkbox-description">
+            Special discussion posts from repositories
+          </p>
+        </div>
+      </div>
+
+      <!-- Releases -->
+      <div class="checkbox-item">
+        <input type="checkbox" id="releases" checked />
+        <div class="checkbox-content">
+          <label for="releases" class="checkbox-label">
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path d="M7.5 1.5l-7 7 7 7M1.5 8.5h13"></path>
+            </svg>
+            Releases
+          </label>
+          <p class="checkbox-description">Update posts from repositories</p>
+        </div>
+      </div>
+
+      <!-- Sponsors -->
+      <div class="checkbox-item">
+        <input type="checkbox" id="sponsors" checked />
+        <div class="checkbox-content">
+          <label for="sponsors" class="checkbox-label">
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M8 14.25l-5.25-5.5c-1.5-1.5-1.5-4 0-5.5 1.5-1.5 4-1.5 5.5 0l.25.25.25-.25c1.5-1.5 4-1.5 5.5 0 1.5 1.5 1.5 4 0 5.5L8 14.25z"
+              ></path>
+            </svg>
+            Sponsors
+          </label>
+          <p class="checkbox-description">
+            Relevant projects or people that are being sponsored
+          </p>
+        </div>
+      </div>
+
+      <!-- Stars -->
+      <div class="checkbox-item">
+        <input type="checkbox" id="stars" checked />
+        <div class="checkbox-content">
+          <label for="stars" class="checkbox-label">
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 16 16"
+              fill="none"
+              stroke="currentColor"
+            >
+              <path
+                d="M8 1l2.35 4.76 5.26.77-3.8 3.7.9 5.24L8 13l-4.7 2.47.9-5.23-3.8-3.71 5.25-.77L8 1z"
+              ></path>
+            </svg>
+            Stars
+          </label>
+          <p class="checkbox-description">
+            Repositories being starred by people
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popover-footer">
+    <button class="reset-button" id="reset-button">Reset to default</button>
+    <button class="save-button" id="save-button">Save</button>
+  </div>
+</div>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  .filter-button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: white;
+    border: 1px solid #0969da;
+    color: #0969da;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .filter-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* Popover styles */
+  #filter-popover {
+    width: 320px;
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+    border: 1px solid #d0d7de;
+    background-color: white;
+    padding: 0;
+    overflow: hidden;
+    /* Position absolute for custom positioning */
+    position: absolute;
+    /* Animation properties */
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  /* Animation class for when popover is visible */
+  #filter-popover[popover]:popover-open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Popover header */
+  .popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #d0d7de;
+  }
+
+  .popover-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #57606a;
+  }
+
+  /* Popover content */
+  .popover-content {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .section-subtitle {
+    font-size: 12px;
+    color: #57606a;
+    margin-bottom: 16px;
+  }
+
+  /* Checkbox items */
+  .checkbox-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checkbox-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .checkbox-item input[type="checkbox"] {
+    margin-top: 3px;
+  }
+
+  .checkbox-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+  }
+
+  .checkbox-description {
+    font-size: 12px;
+    color: #57606a;
+    margin-top: 2px;
+  }
+
+  .icon {
+    width: 16px;
+    height: 16px;
+    color: #57606a;
+  }
+
+  /* Footer */
+  .popover-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-top: 1px solid #d0d7de;
+    background-color: #f6f8fa;
+  }
+
+  .reset-button {
+    background: none;
+    border: none;
+    color: #0969da;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .save-button {
+    background-color: #2da44e;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Get elements
+    const filterTrigger = document.getElementById("filter-trigger");
+    const filterPopover = document.getElementById("filter-popover");
+    const closePopoverBtn = document.getElementById("close-popover");
+    const saveButton = document.getElementById("save-button");
+    const resetButton = document.getElementById("reset-button");
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+    // Store default checkbox states
+    const defaultStates = Array.from(checkboxes).map(
+      (checkbox) => checkbox.checked
+    );
+
+    // Function to position the popover under the button
+    function positionPopover() {
+      const buttonRect = filterTrigger.getBoundingClientRect();
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const scrollLeft =
+        window.pageXOffset || document.documentElement.scrollLeft;
+
+      // Position the popover under the button with left alignment
+      filterPopover.style.top = buttonRect.bottom + scrollTop + 8 + "px"; // 8px gap
+      filterPopover.style.left = buttonRect.left + scrollLeft + "px";
+    }
+
+    // Open popover when filter button is clicked
+    filterTrigger.addEventListener("click", () => {
+      // Position the popover before showing it
+      positionPopover();
+      filterPopover.showPopover();
+    });
+
+    // Reposition popover on window resize
+    window.addEventListener("resize", () => {
+      if (filterPopover.matches(":popover-open")) {
+        positionPopover();
+      }
+    });
+
+    // Close popover when close button is clicked
+    closePopoverBtn.addEventListener("click", () => {
+      filterPopover.hidePopover();
+    });
+
+    // Close popover when save button is clicked
+    saveButton.addEventListener("click", () => {
+      // Here you would typically save the filter state
+      console.log("Filters saved:", getSelectedFilters());
+      filterPopover.hidePopover();
+    });
+
+    // Reset checkboxes to default state
+    resetButton.addEventListener("click", () => {
+      checkboxes.forEach((checkbox, index) => {
+        checkbox.checked = defaultStates[index];
+      });
+    });
+
+    // Function to get selected filters
+    function getSelectedFilters() {
+      return Array.from(checkboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.id);
+    }
+
+    // The popover API automatically handles:
+    // - Closing when ESC key is pressed
+    // - Closing when clicking outside the popover
+    // - Focus management
+  });
+</script>
