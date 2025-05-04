@@ -1,0 +1,39 @@
+---
+import "../styles/global.css";
+const { maxCols = "3", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="grid" data-max-cols={maxCols}>
+  <slot />
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --grid-gap: 1rem;
+  }
+
+  .grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid black;
+  }
+
+  .test {
+    --grid-gap: 4rem;
+    > div {
+      background-color: red;
+    }
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

@@ -15,6 +15,7 @@ import SectionHeader from "../components/SectionHeader.astro";
 import CardFrame from "../components/CardFrame.astro";
 import CardContent from "../components/CardContent.astro";
 import StackContent from "../components/StackContent.astro";
+import Grid from "../components/Grid.astro";
 ---
 
 <html lang="en">
@@ -31,11 +32,34 @@ import StackContent from "../components/StackContent.astro";
 
     <section class="dump">
       <Header />
+      <Grid>
+        <CardFrame isPinned>
+          <CardContent />
+        </CardFrame>
+        <CardFrame isStack>
+          <StackContent />
+        </CardFrame>
+        <CardFrame>
+          <CardContent />
+        </CardFrame>
+        <CardFrame>
+          <CardContent />
+        </CardFrame>
+        <CardFrame>
+          <CardContent />
+        </CardFrame>
+      </Grid>
       <Resizer>
         <Fragment slot="pinned">
-          <Card />
-          <Card />
-          <Card />
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
         </Fragment>
 
         <Fragment slot="recents">

@@ -1,6 +1,12 @@
 ---
 import "../styles/global.css";
-const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
+const {
+  title = "I am a title",
+  isStack,
+  isPinned,
+  bg = "white",
+  ...attrs
+} = Astro.props;
 ---
 
 {/* ================================== */}
@@ -11,6 +17,7 @@ const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
   class:list={[
     "card-frame",
     { "card-frame--is-stack": isStack },
+    { "card--is-pinned": isPinned },
     `card-frame-fill-${bg}`,
   ]}
 >
@@ -25,7 +32,7 @@ const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
     --card-frame-fill: #fff;
     --card-frame-radius: 8px;
     --card-frame-shadow: var(--elevation-shadow-1);
-    -card-frame-fill-border: #c1c1c1;
+    --card-frame-fill-border: #c1c1c1;
   }
 
   .card-frame {
@@ -35,7 +42,7 @@ const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
     border: 1px solid var(--card-frame-fill-border);
     border-radius: var(--card-frame-radius);
     box-shadow: var(--card-frame-shadow);
-    margin-block: 2rem;
+    /* margin-block: 2rem; */
   }
 
   .card-frame--is-stack {
@@ -58,6 +65,10 @@ const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
     &:hover::before {
       transform: rotate(-3deg);
     }
+  }
+
+  .card--is-pinned {
+    --card-fill-pin: red;
   }
 </style>
 
