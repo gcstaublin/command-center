@@ -1,0 +1,59 @@
+---
+import "../styles/global.css";
+const { title = "I am a title", hasRule, ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<h3 class:list={["section-header", { "section-header--has-rule": hasRule }]}>
+  <span class="section-header__title">{title}</span>
+</h3>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --section-header-size: 0.875rem;
+    --section-header-weight: 700;
+    --section-header-radius: 0.25rem;
+    --section-header-bg: rgb(174, 155, 133);
+    --section-header-color: #fff;
+    --section-header-bg-rule: rgb(235, 227, 219);
+    --section-header-pad-inline: 0.625rem;
+    --section-header-pad-block: 0.25rem;
+  }
+  .section-header {
+    position: relative;
+    font-size: var(--section-header-size);
+    font-weight: var(--section-header-weight);
+    text-align: center;
+  }
+
+  .section-header--has-rule {
+    &::after {
+      position: absolute;
+      inset-inline: 0;
+      inset-block-start: 50%;
+      content: "";
+      z-index: -1;
+      border-block-end: 1px solid var(--section-header-bg-rule);
+    }
+  }
+
+  .section-header__title {
+    display: inline-block;
+    padding-block: var(--section-header-pad-block);
+    padding-inline: var(--section-header-pad-inline);
+    border-radius: var(--section-header-radius);
+    background-color: var(--section-header-bg);
+    color: var(--section-header-color);
+    text-transform: uppercase;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

@@ -11,6 +11,7 @@ import Resizer from "../components/Resizer.astro";
 import Header from "../components/Header.astro";
 import Panel from "../components/Panel.astro";
 import Filter from "../components/Filter.astro";
+import SectionHeader from "../components/SectionHeader.astro";
 ---
 
 <html lang="en">
@@ -55,6 +56,8 @@ import Filter from "../components/Filter.astro";
 
         <Fragment slot="playground">
           <section class="dump">playground</section>
+          <SectionHeader />
+          <SectionHeader title="Hello World" hasRule />
         </Fragment>
       </Resizer>
     </section>
