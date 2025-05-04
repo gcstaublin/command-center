@@ -32,6 +32,7 @@ const {
     --section-header-bg: rgb(174, 155, 133);
     --section-header-color: #fff;
     --section-header-bg-rule: rgb(235, 227, 219);
+    --section-header-height-rule: 1px;
     --section-header-pad-inline: 0.625rem;
     --section-header-pad-block: 0.25rem;
   }
@@ -53,7 +54,8 @@ const {
       inset-block-start: 50%;
       content: "";
       z-index: -1;
-      border-block-end: 1px solid var(--section-header-bg-rule);
+      border-block-end: var(--section-header-height-rule) solid
+        var(--section-header-bg-rule);
     }
   }
 
