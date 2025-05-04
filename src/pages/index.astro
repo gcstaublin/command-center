@@ -13,6 +13,8 @@ import Panel from "../components/Panel.astro";
 import Filter from "../components/Filter.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import CardFrame from "../components/CardFrame.astro";
+import CardContent from "../components/CardContent.astro";
+import StackContent from "../components/StackContent.astro";
 ---
 
 <html lang="en">
@@ -49,67 +51,88 @@ import CardFrame from "../components/CardFrame.astro";
             <Panel>
               <Filter />
               <Card />
-              <CardFrame />
-              <CardFrame isStack>
-                <h1>rad</h1>
+              <CardFrame>
+                <CardContent />
               </CardFrame>
+              <CardFrame isStack>
+                <StackContent />
+              </CardFrame>
+              <Panel><CardDate status="risk" /></Panel>
+              <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
             </Panel>
-            <Panel><CardDate status="risk" /></Panel>
-            <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
           </div>
-        </Fragment>
 
-        <Fragment slot="playground">
-          <section class="dump">playground</section>
-          <SectionHeader />
-          <SectionHeader align="left" title="Hey Dude" />
-          <SectionHeader title="Hello World" hasRule />
-          <SectionHeader title="Hello World" align="left" hasRule />
+          <Fragment slot="playground">
+            <section class="dump">playground</section>
+            <SectionHeader />
+            <SectionHeader align="left" title="Hey Dude" />
+            <SectionHeader title="Hello World" hasRule />
+            <SectionHeader title="Hello World" align="left" hasRule />
+          </Fragment>
         </Fragment>
       </Resizer>
+
+      {/* ================================== */}
+      {/* Style                              */}
+      {/* ================================== */}
+      <style is:global>
+        .dump {
+          padding: 4rem;
+
+          & + & {
+            margin-top: 40px;
+          }
+
+          > * + * {
+            margin-top: 40px;
+          }
+        }
+
+        .grid--vertical {
+          display: grid;
+          gap: 0.8rem;
+        }
+
+        .grid--vertical--large {
+          gap: 3rem;
+        }
+
+        .cal-grid--max {
+          margin-inline: auto;
+          inline-size: 100%;
+          max-inline-size: 400px;
+          position: relative;
+
+          &::before {
+            content: "For placement only";
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            font-size: 12px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-inline: 2rem;
+          }
+        }
+      </style>
     </section>
-
-    {/* ================================== */}
-    {/* Style                              */}
-    {/* ================================== */}
-    <style is:global>
-      .dump {
-        padding: 4rem;
-
-        & + & {
-          margin-top: 40px;
-        }
-
-        > * + * {
-          margin-top: 40px;
-        }
-      }
-
-      .grid--vertical {
-        display: grid;
-        gap: 0.8rem;
-      }
-
-      .grid--vertical--large {
-        gap: 3rem;
-      }
-
-      .cal-grid--max {
-        margin-inline: auto;
-        inline-size: 100%;
-        max-inline-size: 400px;
-        position: relative;
-
-        &::before {
-          content: "For placement only";
-          position: absolute;
-          top: 50%;
-          left: 25%;
-          font-size: 12px;
-          background-color: rgba(0, 0, 0, 0.6);
-          padding-inline: 2rem;
-        }
-      }
-    </style>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const updateToggles = document.querySelectorAll(".js-update-toggle");
+
+    updateToggles.forEach((toggle) => {
+      // const nearestLink = toggle.closest(".js-card__link");
+      // console.log(nearestLink);
+      // nearestLink.preventDefault();
+      toggle.addEventListener("click", () => {
+        const updatesList = toggle.nextElementSibling;
+
+        if (updatesList && updatesList.classList.contains("js-updates-list")) {
+          updatesList.classList.toggle("active");
+        }
+      });
+    });
+  });
+</script>

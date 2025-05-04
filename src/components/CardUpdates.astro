@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+
+import CardDate from "./CardDate.astro";
+const { title = "I am a title", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="card__footer card__pad">
+  <div class="updates-section">
+    <div class="updates__header js-update-toggle" id="updates-toggle">
+      <span class="updates__count">xx new updates</span>, last updated 30
+      minutes ago
+    </div>
+    <div class="updates-list js-updates-list" id="updates-list">
+      <ul class="updates-list__items">
+        <li class="updates-list__item">
+          On Schedule, Grant S. added. Test zoom
+        </li>
+        <li class="updates-list__item">Grant S. answered: What the deal?</li>
+        <li class="updates-list__item">
+          Grant S. started an automatic check-in: What the deal?
+        </li>
+        <li class="updates-list__item">
+          On Card Table, Grant S. added: Rad Card
+        </li>
+        <li class="updates-list__item">See all updates</li>
+      </ul>
+    </div>
+  </div>
+  <div class="date-container">
+    <CardDate />
+  </div>
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global></style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

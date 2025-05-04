@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+
+import AvatarStack from "./AvatarStack.astro";
+import Pin from "../svg/pin.svg";
+import CardUpdates from "./CardUpdates.astro";
+
+const {
+  title = "I am a title",
+  description = "I am description",
+  overline = "Overline",
+  ...attrs
+} = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="card__content">
+  <a class="card__link js-card__link" href="#">
+    <section>
+      <span class="card__overline">
+        {overline}
+      </span>
+
+      <h2 class="card__title">
+        {title}
+      </h2>
+
+      <p class="card__description">
+        {description}
+      </p>
+    </section>
+  </a>
+
+  <section class="card__people" aria-hidden="true">
+    <AvatarStack number="88" />
+    <!-- <img
+        alt="Grant Staublin"
+        title="Grant Staublin, Grant Staublin"
+        class="avatar"
+        src="https://bc3-production-assets-cdn.basecamp-static.com/5932659/people/BAhpBJZx2wI=--28a3e09f30474dff4b381a0f7ed8190c33010b23/avatar?v=1"
+        width="130"
+        height="130"
+      /> -->
+  </section>
+  <section>
+    <div class="card__controls">
+      <button class="card__pin">
+        <Pin />
+      </button>
+    </div>
+  </section>
+  <CardUpdates />
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --card-title-size-min: 1.3rem;
+    --card-title-size-max: 2rem;
+    --card-title-font-weight: 700;
+    --card-color-contrast: #2a373e;
+    --card-color-dim: #747575;
+  }
+
+  .card__content {
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    block-size: 100%;
+    padding: 1.5rem;
+    text-align: left;
+    color: var(--card-color-contrast);
+    line-height: 1.3;
+    border: 1px solid green;
+  }
+  .card__link {
+    /* display: block;
+    min-block-size: 100%; */
+    /* position: absolute; */
+    inset: 0;
+    text-decoration: none;
+    border: 1px solid pink;
+  }
+
+  .card__title {
+    /* color: green; */
+    /* color: var(--card-color-contrast); */
+    font-weight: var(--card-title-font-weight);
+    letter-spacing: -0.01em;
+    font-size: clamp(
+      var(--card-title-size-min),
+      3cqw,
+      var(--card-title-size-max)
+    );
+  }
+
+  .card__description {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card__overline {
+    letter-spacing: 0.04em;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

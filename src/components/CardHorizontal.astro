@@ -55,8 +55,36 @@ import CardDate from "./CardDate.astro";
         </defs>
       </svg>
     </div> -->
+    <div class="card__footer card__pad">
+      <div class="updates-section">
+        <div class="updates__header js-update-toggle" id="updates-toggle">
+          <span class="updates__count">12 new updates</span>, last updated 30
+          minutes ago
+        </div>
+        <div class="updates-list js-updates-list" id="updates-list">
+          <ul class="updates-list__items">
+            <li class="updates-list__item">
+              On Schedule, Grant S. added. Test zoom
+            </li>
+            <li class="updates-list__item">
+              Grant S. answered: What the deal?
+            </li>
+            <li class="updates-list__item">
+              Grant S. started an automatic check-in: What the deal?
+            </li>
+            <li class="updates-list__item">
+              On Card Table, Grant S. added: Rad Card
+            </li>
+            <li class="updates-list__item">See all updates</li>
+          </ul>
+        </div>
+      </div>
+      <div class="date-container">
+        <CardDate />
+      </div>
+    </div>
   </div>
-  <div class="card__footer card__pad">
+  <!-- <div class="card__footer card__pad">
     <div class="updates-section">
       <div class="updates__header js-update-toggle" id="updates-toggle">
         <span class="updates__count">12 new updates</span>, last updated 30
@@ -81,7 +109,7 @@ import CardDate from "./CardDate.astro";
     <div class="date-container">
       <CardDate />
     </div>
-  </div>
+  </div> -->
 </div>
 
 {/* ================================== */}
@@ -93,7 +121,7 @@ import CardDate from "./CardDate.astro";
     --card-pad-block: 20px;
     --card-fill-meta: rgba(0, 0, 0, 0.04);
     --card-fill-surface: #fff;
-    --card-color: #2a373e;
+    /* --card-color: #2a373e; */
     --card-color-dim: #747575;
     --card-fill-pin: var(--card-color-dim);
   }
@@ -131,14 +159,14 @@ import CardDate from "./CardDate.astro";
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    color: var(--card-color-dim);
+    /* color: var(--card-color-dim); */
     /* margin-bottom: 8px; */
     letter-spacing: 0.05em;
   }
 
   .card__title {
-    font-size: 16px;
-    font-weight: 700;
+    /* font-size: 16px; */
+    /* font-weight: 700; */
     color: var(--card-color);
     /* color: #111827; */
     /* margin-bottom: 8px; */
@@ -211,6 +239,7 @@ import CardDate from "./CardDate.astro";
     --card-pad-block: 10px;
 
     position: relative;
+    z-index: 1;
     display: flex;
     /* justify-content: space-between; */
     align-items: center;
@@ -223,6 +252,7 @@ import CardDate from "./CardDate.astro";
     inset-inline-end: var(--card-pad-inline);
     inset-block-start: var(--card-pad-block);
     margin-block-start: 4px; /* hack to visually align date with updates. fix this */
+    background: red;
   }
 
   .card__controls {
@@ -236,8 +266,8 @@ import CardDate from "./CardDate.astro";
 
   .card__pin {
     color: var(--card-fill-pin);
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     padding: 0;
     border: 0;
     background: none;
@@ -270,17 +300,17 @@ import CardDate from "./CardDate.astro";
 {/* Javascript                         */}
 {/* ================================== */}
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const updateToggles = document.querySelectorAll(".js-update-toggle");
+  // document.addEventListener("DOMContentLoaded", function () {
+  //   const updateToggles = document.querySelectorAll(".js-update-toggle");
 
-    updateToggles.forEach((toggle) => {
-      toggle.addEventListener("click", () => {
-        const updatesList = toggle.nextElementSibling;
+  //   updateToggles.forEach((toggle) => {
+  //     toggle.addEventListener("click", () => {
+  //       const updatesList = toggle.nextElementSibling;
 
-        if (updatesList && updatesList.classList.contains("js-updates-list")) {
-          updatesList.classList.toggle("active");
-        }
-      });
-    });
-  });
+  //       if (updatesList && updatesList.classList.contains("js-updates-list")) {
+  //         updatesList.classList.toggle("active");
+  //       }
+  //     });
+  //   });
+  // });
 </script>
