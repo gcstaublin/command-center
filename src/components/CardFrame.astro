@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+const { title = "I am a title", isStack, bg = "white", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<article
+  class="card-frame"
+  class:list={[
+    "card-frame",
+    { "card-frame--is-stack": isStack },
+    `card-frame-fill-${bg}`,
+  ]}
+>
+  <slot />
+</article>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --card-frame-fill: #fff;
+    --card-frame-radius: 8px;
+    --card-frame-shadow: var(--elevation-shadow-1);
+    -card-frame-fill-border: #c1c1c1;
+  }
+
+  .card-frame {
+    position: relative;
+    aspect-ratio: 16/9;
+    background-color: var(--card-frame-fill);
+    border: 1px solid var(--card-frame-fill-border);
+    border-radius: var(--card-frame-radius);
+    box-shadow: var(--card-frame-shadow);
+    margin-block: 2rem;
+  }
+
+  .card-frame--is-stack {
+    &:before {
+      position: absolute;
+      z-index: -1;
+      inset-block-start: 1px;
+      inset-block-end: 0;
+      inset-inline-start: -1px;
+      inset-inline-end: 0;
+      content: "";
+      transform: rotate(-2deg);
+      border-radius: var(--card-frame-radius);
+      border: 1px solid var(--card-frame-fill-border);
+      background-color: var(--card-frame-fill);
+      /* opacity: 0.75; */
+      transition: transform 0.2s ease;
+    }
+
+    &:hover::before {
+      transform: rotate(-3deg);
+    }
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

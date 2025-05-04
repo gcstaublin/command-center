@@ -12,6 +12,7 @@ import Header from "../components/Header.astro";
 import Panel from "../components/Panel.astro";
 import Filter from "../components/Filter.astro";
 import SectionHeader from "../components/SectionHeader.astro";
+import CardFrame from "../components/CardFrame.astro";
 ---
 
 <html lang="en">
@@ -48,6 +49,10 @@ import SectionHeader from "../components/SectionHeader.astro";
             <Panel>
               <Filter />
               <Card />
+              <CardFrame />
+              <CardFrame isStack>
+                <h1>rad</h1>
+              </CardFrame>
             </Panel>
             <Panel><CardDate status="risk" /></Panel>
             <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
