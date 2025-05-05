@@ -48,7 +48,6 @@ const { title = "My project title", hasUpdates } = Astro.props;
     --card-pad-block: 20px;
     --card-fill-meta: rgba(0, 0, 0, 0.04);
     --card-fill-surface: #fff;
-    /* --card-color: #2a373e; */
     --card-color-dim: #747575;
     --card-fill-pin: var(--card-color-dim);
   }
@@ -65,7 +64,6 @@ const { title = "My project title", hasUpdates } = Astro.props;
 
   .card {
     width: 100%;
-    /* max-width: 500px; */
     background-color: var(--card-fill-surface);
     border-radius: var(--card-frame-radius);
     box-shadow: var(--elevation-shadow-1);
@@ -80,11 +78,9 @@ const { title = "My project title", hasUpdates } = Astro.props;
   }
 
   .card__content {
-    /* padding: 24px; */
   }
 
   .card__header {
-    /* margin-bottom: 20px; */
     a {
       text-decoration: none;
     }
@@ -95,24 +91,16 @@ const { title = "My project title", hasUpdates } = Astro.props;
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    /* color: var(--card-color-dim); */
-    /* margin-bottom: 8px; */
     letter-spacing: 0.05em;
   }
 
   .card__title {
-    /* font-size: 16px; */
-    /* font-weight: 700; */
     color: var(--card-color);
-    /* color: #111827; */
-    /* margin-bottom: 8px; */
   }
 
   .card__description {
     font-size: 14px;
     color: var(--card-color);
-    /* color: #4b5563; */
-    /* margin-bottom: 16px; */
   }
 
   .card__footer {
@@ -121,26 +109,22 @@ const { title = "My project title", hasUpdates } = Astro.props;
     position: relative;
     z-index: 1;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     background-color: var(--card-fill-meta);
     border-radius: 8px;
   }
 
   .date-container {
-    /* border: 1px solid; */
     position: absolute;
     inset-inline-end: var(--card-pad-inline);
     inset-block-start: var(--card-pad-block);
     margin-block-start: 4px; /* hack to visually align date with updates. fix this */
-    /* background: red; */
   }
 
   .card__controls {
-    /* border: 1px solid green; */
     display: flex;
-    gap: 30px;
     position: absolute;
+    gap: 30px;
     inset-inline-end: var(--card-pad-inline);
     inset-block-start: var(--card-pad-block);
   }
@@ -153,7 +137,6 @@ const { title = "My project title", hasUpdates } = Astro.props;
     border: 0;
     background: none;
     cursor: pointer;
-    /* border: 1px solid green; */
     &:hover {
       color: red;
     }

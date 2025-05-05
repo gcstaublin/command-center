@@ -46,35 +46,18 @@ const { title = "I am a title", showNew, showNeedle, ...attrs } = Astro.props;
 {/* CSS Style                          */}
 {/* ================================== */}
 <style is:global>
-  .xxx {
-    --updates-color-border: red;
-  }
-
-  .activity__new {
-    /* background-color: rgba(255, 255, 255, 0.4); */
-    /* background-color: var(--fill-surface-recessed); */
-    /* border-block-start: 1px solid black; */
-    /* border-block-end: 1px solid black; */
-    /* text-align: center; */
-    /* margin-inline-start: -2rem; */
-    /* margin-inline-end: -2rem; */
-    /* padding-block: 0.55em;
-    margin-block-end: 2em; */
-    /* font-size: 14px; */
-    /* border-radius: 4px; */
-  }
+  /* .activity__new {
+  } */
 
   .activity__button {
     display: block;
+    margin-block-end: 2em;
     inline-size: 100%;
+    padding-block: 0.55em;
     font-size: 14px;
     background-color: var(--fill-surface-recessed);
     border: 0;
-    /* padding-block: 0.3em; */
-    /* padding-inline: 0.8em; */
     cursor: pointer;
-    padding-block: 0.55em;
-    margin-block-end: 2em;
     border-radius: 4px;
   }
 
