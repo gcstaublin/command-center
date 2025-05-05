@@ -16,6 +16,10 @@
       0 0 64px rgba(0, 0, 0, 0.2);
 
   --color-action: #2563eb;
+
+  --fill-surface-base: hsl(33.3, 60%, 97.1%);
+  --fill-surface-raised: rgba(0, 0, 0, 0.05);
+  --fill-surface-recessed: rgba(0, 0, 0, 0.08);
 }
 
 
@@ -32,7 +36,8 @@
 */
 
 body {
-  background: hsl(33.3, 60%, 97.1%);
+  /* background: hsl(33.3, 60%, 97.1%); */
+  background-color: var(--fill-surface-base);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: rgb(43, 55, 62);
 }
