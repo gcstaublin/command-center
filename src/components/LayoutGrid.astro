@@ -18,6 +18,7 @@ const { maxCols = "3", type = "default", ...attrs } = Astro.props;
     --grid-gap: 12rem;
     --l-grid-gap-column: 1rem;
     --l-grid-gap-row: 1rem;
+    --l-grid-min-size: 300px;
   }
 
   .l-grid {
@@ -26,20 +27,24 @@ const { maxCols = "3", type = "default", ...attrs } = Astro.props;
     column-gap: var(--l-grid-gap-column);
 
     /* grid-template-columns: 1fr 1fr 1fr; */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(var(--l-grid-min-size), 1fr)
+    );
     /* border: 2px solid black; */
   }
 
   .l-grid > * {
-    border: 2px solid red;
+    /* border: 2px solid red; */
   }
 
   .l-grid--bento {
     --l-grid-gap-column: 1rem;
     --l-grid-gap-row: 1.75rem;
+    --l-grid-min-size: 375px;
     display: grid;
 
-    border: 2px solid blue;
+    /* border: 2px solid blue; */
   }
 
   .test {
