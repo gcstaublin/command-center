@@ -1,15 +1,30 @@
 ---
 import "../styles/global.css";
-const { title = "I am a title", ...attrs } = Astro.props;
+import needle from "../images/needle-risk.png";
+
+const { title = "I am a title", showNew, showNeedle, ...attrs } = Astro.props;
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
 <div class="xxx" id="updates-list">
-  <div class="activity__new">
-    <button class="activity__button">Show 14 updates</button>
-  </div>
+  {
+    showNew && (
+      <div class="activity__new">
+        <button class="activity__button">Show 14 updates</button>
+      </div>
+    )
+  }
+
+  {
+    showNeedle && (
+      <div class="activity__needle">
+        <img src={needle.src} alt="" />
+      </div>
+    )
+  }
+
   <ul class="updates__items updates-list__items">
     <li class="updates__item updates-list__item">
       <a href="#">On Schedule</a>, Grant S. added. Test zoom
@@ -61,5 +76,17 @@ const { title = "I am a title", ...attrs } = Astro.props;
     padding-block: 0.55em;
     margin-block-end: 2em;
     border-radius: 4px;
+  }
+
+  .activity__needle {
+    margin-block-end: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+
+    img {
+      opacity: 0.84;
+      display: block;
+      margin-block: 0.25rem;
+    }
   }
 </style>
