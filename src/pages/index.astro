@@ -121,9 +121,15 @@ import RecentButtons from "../components/RecentButtons.astro";
                 <ActivityFeed showNeedle />
               </Panel>
 
-              <Panel title="test" elevation="recessed">
-                <h1>Hello</h1>
-              </Panel>
+              <EmptyState
+                title="Is a teammate not carrying their weight?"
+                description="No one wants to micromanage, but sometimes we need to help others out. With Home Base you can keeping closer tabs and ensure they're successful."
+              />
+
+              <EmptyState
+                title="The deadline is today"
+                description="Every second counts when it absolutely, positively needs to be done by EOD. Home Base will help you keep track of what you need to get it out the door."
+              />
 
               <Panel
                 title="Your Assignments"

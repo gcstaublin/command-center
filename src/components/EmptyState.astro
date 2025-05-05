@@ -2,10 +2,12 @@
 import "../styles/global.css";
 
 import ActivitySvg from "../svg/activity.svg";
+import Dots from "../svg/dots.svg";
 import LayoutStack from "./LayoutStack.astro";
 
 const {
-  title = "Activity Monitors make your Home screen more dynamic",
+  title = "Keep your eye on things without leaving the home screen",
+  description = "Is there an aspect of a project that you need to keep a close eye on? Wouldn't it be cool, if you could watch multiple projects simultaneously?",
   ...attrs
 } = Astro.props;
 ---
@@ -15,9 +17,6 @@ const {
 {/* ================================== */}
 <div class="empty-state">
   <div class="empty-state__inner">
-    <div class="empty-state__icon">
-      <ActivitySvg />
-    </div>
     <LayoutStack distance="50">
       <header class="empty-state__header">
         <h3 class="empty-state__title">
@@ -25,21 +24,26 @@ const {
         </h3>
       </header>
       <div class="empty-state__content">
-        <p>
-          To add a new Activity Monitor, start typing in the search box to find
-          the project you want to keep an eye on.
+        <p class="empty-state__text">
+          {description}
         </p>
-        <p>
-          Once you select a project, you'll be able to refine the monitor to
-          only show you what you immediately care about.
+        <div class="empty-state__icon">
+          <!-- <ActivitySvg /> -->
+          <div class="empty-state__button button button--outline">
+            <Dots />
+          </div>
+        </div>
+        <p class="empty-state__text empty-state__text--small">
+          Visit any tool in any of your projects, select the settings button and
+          click <strong>Add to Home Base</strong>. It's as easy as that.
         </p>
-        <div class="empty-state__form">
+        <!-- <div class="empty-state__form">
           <input
             placeholder="Search for a project"
             class="empty-state__input"
             type="search"
           />
-        </div>
+        </div> -->
       </div>
     </LayoutStack>
   </div>
@@ -60,14 +64,25 @@ const {
   .empty-state__inner {
     display: flex;
     gap: 1rem;
-    max-inline-size: 700px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* max-inline-size: 700px; */
     margin-inline: auto;
+    text-align: center;
   }
 
   .empty-state__header {
     /* display: flex;
     gap: 1rem;
     align-items: center; */
+  }
+
+  .empty-state__title {
+    font-weight: 500;
+    font-size: 1.45rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
   }
 
   .empty-state__icon {
@@ -92,5 +107,31 @@ const {
 
   .empty-state__form {
     margin-block-start: 1rem;
+  }
+
+  .empty-state__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .empty-state__button {
+    display: flex;
+    width: 30px;
+    height: 30px;
+    padding-inline: 0.25rem;
+    padding-block: 0.25rem;
+    cursor: auto;
+  }
+
+  .empty-state__text {
+    max-width: 60ch;
+    text-wrap: balance;
+  }
+
+  .empty-state__text--small {
+    font-size: 0.85rem;
+    line-height: 1.3;
   }
 </style>
