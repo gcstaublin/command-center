@@ -1,12 +1,7 @@
 ---
 import "../styles/global.css";
-const {
-  title = "I am a title",
-  isStack,
-  isPinned,
-  bg = "white",
-  ...attrs
-} = Astro.props;
+
+const { isStack, isPinned, bg = "white", ...attrs } = Astro.props;
 ---
 
 {/* ================================== */}
@@ -39,13 +34,14 @@ const {
     position: relative;
     /* aspect-ratio: 16/9; */
     background-color: var(--card-frame-fill);
-    border: 1px solid var(--card-frame-fill-border);
+    /* border: 1px solid var(--card-frame-fill-border); */
     border-radius: var(--card-frame-radius);
     box-shadow: var(--card-frame-shadow);
     /* margin-block: 2rem; */
   }
 
   .card-frame--is-stack {
+    /* aspect-ratio: 16/9; */
     &:before {
       position: absolute;
       z-index: -1;
@@ -69,6 +65,7 @@ const {
 
   .card--is-pinned {
     --card-fill-pin: red;
+    /* aspect-ratio: 16/9; */
   }
 </style>
 

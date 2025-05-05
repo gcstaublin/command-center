@@ -5,20 +5,25 @@ import "../styles/global.css";
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<div class="container">
-  <div class="sidebar" id="sidebar">
+<div class="resizer__container">
+  <!-- Resizer Primary -->
+  <div class="resizer__primary sidebar" id="sidebar">
     <div class="projects__container">
-      <div class="projects--pinned">
+      <!-- <div class="projects--pinned">
         <slot name="pinned" />
-      </div>
+      </div> -->
 
       <div>
         <slot name="recents" />
       </div>
     </div>
   </div>
+
+  <!-- Resizer Area -->
   <div class="resizer" id="resizer"></div>
-  <div class="main-content">
+
+  <!-- Resizer Secondary -->
+  <div class="resizer__secondary main-content">
     <slot name="aside" />
 
     <!-- <h1>Main Content</h1>
@@ -57,18 +62,29 @@ import "../styles/global.css";
     --fill-resizer-bg: rgba(0, 0, 0, 0.05);
     --resizer-radius: 20px;
   }
-  .projects__container {
-    display: grid;
-    gap: 100px;
-    padding-inline: 3rem;
+
+  .resizer__container {
+    display: flex;
+    /* border: 4px solid blue; */
+  }
+
+  .resizer__primary {
     padding-block: 3rem;
   }
 
-  .projects--pinned {
+  .projects__container {
+    display: grid;
+    gap: 100px;
+    padding-inline: 1rem;
+    /* padding-block: 3rem; */
+  }
+
+  /* .projects--pinned {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.8rem;
-  }
+  } */
+
   .container {
     display: flex;
     /* height: 600px; */

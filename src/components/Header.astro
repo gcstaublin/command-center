@@ -1,24 +1,47 @@
 ---
 import "../styles/global.css";
 
-const { accountTitle = "Name goes here" } = Astro.props;
+const { title = "Name goes here" } = Astro.props;
+
+import Button from "./Button.astro";
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
 
-<header>
-  <h1 class="title">{accountTitle}</h1>
+<header class="header">
+  <h1 class="header__title">{title}</h1>
+  <div class="header__tools">
+    <Button label="Create a new project" />
+    <Button label="Invite more people" />
+    <Button label="Send a ping" />
+  </div>
 </header>
 
 {/* ================================== */}
 {/* Style                              */}
 {/* ================================== */}
 <style is:global>
-  .title {
+  .header {
+    container-type: inline-size;
+    border: 1px solid blue;
+
+    > * + * {
+      margin-top: 8rem;
+    }
+  }
+
+  .header__title {
     font-size: 60px;
     line-height: 1;
     font-weight: 800;
+    text-align: center;
+  }
+
+  .header__tools {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
   }
 </style>

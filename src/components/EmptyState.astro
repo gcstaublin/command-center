@@ -1,0 +1,93 @@
+---
+import "../styles/global.css";
+
+import ActivitySvg from "../svg/activity.svg";
+import LayoutStack from "./LayoutStack.astro";
+
+const {
+  title = "Activity Monitors make your Home screen more dynamic",
+  ...attrs
+} = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="empty-state">
+  <div class="empty-state__icon">
+    <ActivitySvg />
+  </div>
+  <LayoutStack>
+    <header class="empty-state__header">
+      <h3 class="empty-state__title">
+        {title}
+      </h3>
+    </header>
+    <div class="empty-state__content">
+      <LayoutStack>
+        <div>
+          <p>
+            To add a new Activity Monitor, start typing in the search box to
+            find the project you want to keep an eye on.
+          </p>
+          <p>
+            Once you select a project, you'll be able to refine the monitor to
+            only show you what you immediately care about.
+          </p>
+        </div>
+        <div class="empty-state__form">
+          <input
+            placeholder="Search for a project"
+            class="empty-state__input"
+            type="search"
+          />
+        </div>
+      </LayoutStack>
+    </div>
+  </LayoutStack>
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .empty-state {
+    display: flex;
+    gap: 1rem;
+    /* background-color: yellow; */
+    padding: 1rem;
+    border: 1px dotted rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .empty-state__header {
+    /* display: flex;
+    gap: 1rem;
+    align-items: center; */
+  }
+
+  .empty-state__icon {
+    color: var(--color-fg-dim);
+    block-size: 24px;
+    inline-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .empty-state__input {
+    width: 100%;
+    border-radius: 0.4rem;
+    line-height: 1.5;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    color: inherit;
+    padding: 0.5rem;
+    border: 1px solid pink;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

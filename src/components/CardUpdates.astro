@@ -8,39 +8,142 @@ const { title = "I am a title", ...attrs } = Astro.props;
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<div class="card__footer card__pad">
-  <div class="updates-section">
-    <div class="updates__header js-update-toggle" id="updates-toggle">
-      <span class="updates__count">xx new updates</span>, last updated 30
-      minutes ago
-    </div>
-    <div class="updates-list js-updates-list" id="updates-list">
-      <ul class="updates-list__items">
-        <li class="updates-list__item">
-          On Schedule, Grant S. added. Test zoom
-        </li>
-        <li class="updates-list__item">Grant S. answered: What the deal?</li>
-        <li class="updates-list__item">
-          Grant S. started an automatic check-in: What the deal?
-        </li>
-        <li class="updates-list__item">
-          On Card Table, Grant S. added: Rad Card
-        </li>
-        <li class="updates-list__item">See all updates</li>
-      </ul>
-    </div>
+
+<div class="updates-section">
+  <div class="updates__header js-update-toggle" id="updates-toggle">
+    <span class="updates__count">5 updates</span>, since this morning
   </div>
-  <div class="date-container">
+  <div class="updates-list js-updates-list" id="updates-list">
+    <ul class="updates__items updates-list__items">
+      <li class="updates__item updates-list__item">
+        <a href="#">On Schedule</a>, Grant S. added. Test zoom
+      </li>
+      <li class="updates__item updates-list__item">
+        Grant S. answered: <a href="#">What the deal? </a>
+        <li class="updates__item updates-list__item">
+          Grant S. started an automatic check-in: <a href="#">What the deal?</a>
+        </li>
+        <li class="updates__item updates-list__item">
+          <a href="#">On Card Table</a>, Grant S. added: Rad Card
+        </li>
+      </li>
+    </ul>
+    <a class="updates__link" href="#">See all updates</a>
+  </div>
+  <!-- <div class="date-container">
     <CardDate />
-  </div>
+  </div> -->
+
+  {/* ================================== */}
+  {/* CSS Style                          */}
+  {/* ================================== */}
+  <style is:global>
+    :root {
+      --updates-color-fg: #4b5563;
+      --updates-color-count: #2563eb;
+      --updates-font-size: 14px;
+      --updates-color-border: #9aa1aa;
+    }
+    .updates__section {
+      flex: 1;
+    }
+
+    .updates__header {
+      font-size: var(--updates-font-size);
+      color: var(--updates-color-fg);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .updates__count {
+      color: var(--updates-color-count);
+      font-weight: 600;
+    }
+
+    .updates-list {
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.3s ease-out,
+        opacity 0.3s ease-out,
+        margin 0.3s ease-out;
+      opacity: 0;
+      margin-top: 0;
+      padding-block-start: 0;
+    }
+
+    .updates-list__items,
+    .updates__items {
+      list-style-type: disc;
+      padding-inline-start: 20px;
+    }
+
+    .updates-list.active {
+      max-height: 300px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+
+    .updates-list__item,
+    .updates__item {
+      font-size: var(--updates-font-size);
+      color: var(--updates-color-fg);
+      line-height: 1.4;
+      position: relative;
+      padding-block-end: 4px;
+
+      &:first-of-type {
+        &:after {
+          top: 7px;
+        }
+      }
+
+      &:last-of-type {
+        &:after {
+          bottom: 10px;
+        }
+      }
+
+      &:before {
+        position: absolute;
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--updates-color-border);
+        left: -17px;
+        top: 6px;
+      }
+
+      &:after {
+        position: absolute;
+        content: "";
+        border-left: 1px solid var(--updates-color-border);
+        left: -14px;
+        top: 0;
+        bottom: 0;
+      }
+
+      > a {
+        font-weight: 500;
+        text-underline-offset: 2px;
+        color: currentColor;
+      }
+    }
+
+    .updates__link {
+      display: inline-block;
+      margin-block-start: 8px;
+      padding-inline-start: 20px;
+      color: currentColor;
+      font-size: var(--updates-font-size);
+      font-weight: 500;
+      text-underline-offset: 2px;
+    }
+  </style>
+
+  {/* ================================== */}
+  {/* Javascript                         */}
+  {/* ================================== */}
+  <script></script>
 </div>
-
-{/* ================================== */}
-{/* CSS Style                          */}
-{/* ================================== */}
-<style is:global></style>
-
-{/* ================================== */}
-{/* Javascript                         */}
-{/* ================================== */}
-<script></script>

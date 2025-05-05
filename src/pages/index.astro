@@ -2,6 +2,7 @@
 import "../styles/global.css";
 
 import CalGrid from "../svg/calendar-grid.svg";
+import ActivitySvg from "../svg/activity.svg";
 
 import Card from "../components/Card.astro";
 import BaseNav from "../components/BaseNav.astro";
@@ -17,6 +18,7 @@ import CardContent from "../components/CardContent.astro";
 import StackContent from "../components/StackContent.astro";
 import LayoutGrid from "../components/LayoutGrid.astro";
 import LayoutStack from "../components/LayoutStack.astro";
+import EmptyState from "../components/EmptyState.astro";
 ---
 
 <html lang="en">
@@ -32,29 +34,29 @@ import LayoutStack from "../components/LayoutStack.astro";
     <BaseNav />
 
     <section class="dump">
-      <Header />
+      <Header title="Grant Prototype" />
       <section class="top-area">
         <LayoutGrid>
           <CardFrame isPinned>
-            <CardContent />
+            <CardContent title="Hello" />
           </CardFrame>
           <CardFrame isStack>
             <StackContent />
           </CardFrame>
-          <CardFrame>
+          <CardFrame isPinned>
             <CardContent />
           </CardFrame>
-          <CardFrame>
+          <CardFrame isPinned>
             <CardContent />
           </CardFrame>
-          <CardFrame>
+          <CardFrame isPinned>
             <CardContent />
           </CardFrame>
         </LayoutGrid>
       </section>
 
       <Resizer>
-        <Fragment slot="pinned">
+        <!-- <Fragment slot="pinned">
           <CardFrame>
             <CardContent />
           </CardFrame>
@@ -64,7 +66,7 @@ import LayoutStack from "../components/LayoutStack.astro";
           <CardFrame>
             <CardContent />
           </CardFrame>
-        </Fragment>
+        </Fragment> -->
 
         <Fragment slot="recents">
           <!-- <div class="grid--vertical">
@@ -73,12 +75,18 @@ import LayoutStack from "../components/LayoutStack.astro";
             <CardHorizontal />
           </div> -->
           <LayoutStack>
+            <h1>Recent Projects</h1>
             <LayoutStack>
+              <SectionHeader align="left" title="today" />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
               <CardHorizontal />
               <CardHorizontal />
               <CardHorizontal />
             </LayoutStack>
             <LayoutStack>
+              <SectionHeader align="left" title="yesterday" />
               <CardHorizontal />
               <CardHorizontal />
               <CardHorizontal />
@@ -87,20 +95,23 @@ import LayoutStack from "../components/LayoutStack.astro";
         </Fragment>
 
         <Fragment slot="aside">
-          <div class="grid--vertical grid--vertical--large">
+          <LayoutStack>
+            <EmptyState />
             <Panel>
-              <Filter />
-              <Card />
-              <CardFrame>
-                <CardContent />
-              </CardFrame>
-              <CardFrame isStack>
-                <StackContent />
-              </CardFrame>
-              <Panel><CardDate status="risk" /></Panel>
-              <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
+              <SectionHeader title="John Smith's Activity" />
             </Panel>
-          </div>
+            <Panel>
+              <SectionHeader title="Activity Monitor" />
+            </Panel>
+            <Panel>
+              <SectionHeader title="Your Assignments" />
+              <CalGrid />
+              <ActivitySvg />
+            </Panel>
+            <Panel>
+              <SectionHeader title="Your Schedule" />
+            </Panel>
+          </LayoutStack>
 
           <Fragment slot="playground">
             <section class="dump">playground</section>
