@@ -12,6 +12,14 @@ const { label = "Click me", ...attrs } = Astro.props;
 {/* CSS Style                          */}
 {/* ================================== */}
 <style is:global>
+  :root {
+    --button-fill-bg: hsl(148.4, 68.8%, 31.4%);
+    --button-fill-border: var(--button-fill-bg);
+    --button-fill-fg: #fff;
+    --button-font-size: 1rem;
+    --button-font-weight: 500;
+  }
+
   .button {
     display: inline-block;
     padding: 0.5em 1em;
@@ -22,9 +30,23 @@ const { label = "Click me", ...attrs } = Astro.props;
     white-space: normal;
     cursor: pointer;
     outline-offset: 0.4em;
-    background-color: hsl(148.4, 68.8%, 31.4%);
-    border: 0;
-    color: #fff;
+    background-color: var(--button-fill-bg);
+    border: 1px solid var(--button-fill-border);
+    color: var(--button-fill-fg);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+  }
+
+  .button--small {
+    --button-font-size: 0.8125rem;
+    font-size: 13px;
+    padding: 0.25em 0.75em;
+  }
+
+  .button--outline {
+    --button-fill-fg: var(--color-fg-dim);
+    --button-fill-bg: #fff;
+    --button-fill-border: rgba(0, 0, 0, 0.3);
   }
 </style>
 
