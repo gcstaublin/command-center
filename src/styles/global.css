@@ -16,6 +16,9 @@
       0 0 64px rgba(0, 0, 0, 0.2);
 
   --color-action: #2563eb;
+  --color-fg-action: #2563eb;
+  --color-fg-contrast: #2a373e;
+  --color-fg-dim: #747575;
 
   --fill-surface-base: hsl(33.3, 60%, 97.1%);
   --fill-surface-raised: rgba(0, 0, 0, 0.05);
@@ -40,6 +43,23 @@ body {
   background-color: var(--fill-surface-base);
   font-family: -apple-system, system-ui, BlinkMacSystemFont, Aptos, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: rgb(43, 55, 62);
+}
+
+.link {
+  color: var(--color-fg-action);
+  text-underline-offset: 0.08em;
+  text-decoration-thickness: 0.085em;
+  text-decoration-color: currentColor;
+  transition: all 0.25s ease-in-out;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration-thickness: 0.15em;
+  }
+}
+
+.link--text {
+  --color-fg-action: var(--color-fg-contrast);
 }
 
 

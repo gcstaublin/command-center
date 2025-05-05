@@ -22,6 +22,7 @@ import EmptyState from "../components/EmptyState.astro";
 import ScheduleItems from "../components/ScheduleItems.astro";
 import Assignments from "../components/Assignments.astro";
 import ActivityFeed from "../components/ActivityFeed.astro";
+import RecentButtons from "../components/RecentButtons.astro";
 ---
 
 <html lang="en">
@@ -81,8 +82,9 @@ import ActivityFeed from "../components/ActivityFeed.astro";
             <CardHorizontal />
             <CardHorizontal />
           </div> -->
-          <h1 class="headline--recent-projects">Recently Viewed Projects</h1>
-          <LayoutStack distance="350">
+
+          <LayoutStack distance="150">
+            <RecentButtons />
             <LayoutStack distance="100">
               <SectionHeader align="left" title="today" />
               <CardHorizontal />
@@ -162,10 +164,6 @@ import ActivityFeed from "../components/ActivityFeed.astro";
     > * + * {
       margin-top: 40px;
     }
-  }
-
-  .headline--recent-projects {
-    margin-block-end: 1rem;
   }
 
   .grid--vertical--large {

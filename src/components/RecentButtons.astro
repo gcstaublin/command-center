@@ -1,0 +1,64 @@
+---
+import "../styles/global.css";
+const { title = "Viewed", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="recent__container">
+  <h1 class="headline--recent-projects">Recently {title} Projects</h1>
+  <div class="recent__controls">
+    <div class="recent__buttons">
+      <button class="recent__button button button--small">Viewed</button>
+      <button class="recent__button button button--small button--outline"
+        >Created</button
+      >
+      <button class="recent__button button button--small button--outline"
+        >Custom</button
+      >
+    </div>
+    <a class="recent__link link link--text" href="#">All Projects</a>
+  </div>
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .recent__controls {
+    display: flex;
+    margin-block-end: 0.5rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .recent-buttons {
+    display: flex;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .recent__button {
+    /* border-radius: 12px; */
+    /* padding: 1rem; */
+  }
+
+  .recent__link {
+    justify-self: flex-end;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .headline--recent-projects {
+    margin-block-end: 0.75rem;
+    line-height: 1.1;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>
