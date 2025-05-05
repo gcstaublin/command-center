@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-const { status = "none" } = Astro.props;
+const { status = "none", date = "Jan. 28" } = Astro.props;
 
 import Calendar from "../svg/calendar.svg";
 ---
@@ -14,7 +14,7 @@ import Calendar from "../svg/calendar.svg";
   <div class="card-date__icon">
     <Calendar />
   </div>
-  <span class="card-date__text">Jan. 29</span>
+  <span class="card-date__text">{date}</span>
 </div>
 
 {/* ================================== */}

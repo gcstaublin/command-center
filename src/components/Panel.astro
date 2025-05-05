@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 import SectionHeader from "./SectionHeader.astro";
 ---
@@ -13,7 +13,7 @@ import SectionHeader from "./SectionHeader.astro";
   {
     title && (
       <div class="panel__header">
-        <SectionHeader title={title} />
+        <SectionHeader title={title} description={description} />
       </div>
     )
   }

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 const {
   title = "I am a title",
+  description,
   hasRule,
   align = "center",
   ...attrs
@@ -19,6 +20,14 @@ const {
   ]}
 >
   <span class="section-header__title">{title}</span>
+
+  {
+    description && (
+      <p class="section-header__description">
+        <span>{description}</span> – <a href="#">See all</a>
+      </p>
+    )
+  }
 </h3>
 
 {/* ================================== */}
@@ -67,6 +76,19 @@ const {
     background-color: var(--section-header-bg);
     color: var(--section-header-color);
     text-transform: uppercase;
+  }
+
+  .section-header__description {
+    text-align: center;
+    margin-block-start: 0.5rem;
+    font-size: 14px;
+    font-weight: 400;
+
+    a {
+      text-underline-offset: 2px;
+      color: var(--color-action);
+      font-weight: 500;
+    }
   }
 </style>
 
