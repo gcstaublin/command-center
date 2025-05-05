@@ -26,31 +26,7 @@ import "../styles/global.css";
   <div class="resizer__secondary main-content">
     <slot name="aside" />
 
-    <!-- <h1>Main Content</h1>
-    <p>
-      Drag the divider between the sidebar and this main content area to resize
-      both sections.
-    </p>
-    <p>
-      This is a responsive layout with a resizable sidebar implemented using
-      vanilla HTML, CSS, and JavaScript.
-    </p>
-    <p>
-      The sidebar has a minimum width to ensure usability, and the main content
-      area will adjust accordingly.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor,
-      nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl
-      nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl
-      aliquam nisl, eget ultricies nisl nisl eget nisl.
-    </p>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor,
-      nisl eget ultricies tincidunt, nisl nisl aliquam nisl, eget ultricies nisl
-      nisl eget nisl. Nullam auctor, nisl eget ultricies tincidunt, nisl nisl
-      aliquam nisl, eget ultricies nisl nisl eget nisl.
-    </p> -->
+    <!-- Playground slot for experiments -->
     <slot name="playground" />
   </div>
 </div>
@@ -59,7 +35,6 @@ import "../styles/global.css";
 {/* ================================== */}
 <style>
   :root {
-    /* --fill-resizer-bg: rgba(0, 0, 0, 0.05); */
     --fill-resizer-bg: var(--fill-surface-raised);
     --resizer-radius: 20px;
   }
@@ -70,14 +45,14 @@ import "../styles/global.css";
   }
 
   .resizer__primary {
-    padding-block: 3rem;
+    padding-block: var(--panel-pad-block);
+    padding-inline: var(--panel-pad-inline);
+    /* border: 4px solid green; */
   }
 
   .projects__container {
     display: grid;
-    gap: 100px;
-    padding-inline: 1rem;
-    /* padding-block: 3rem; */
+    /* border: 4px solid pink; */
   }
 
   /* .projects--pinned {
@@ -86,14 +61,6 @@ import "../styles/global.css";
     gap: 0.8rem;
   } */
 
-  .container {
-    display: flex;
-    /* height: 600px; */
-    /* overflow: hidden; */
-    /* display: grid; */
-    /* height: 100dvh; */
-  }
-
   .sidebar {
     /* width: 800px; */
     width: 400px;
@@ -101,10 +68,11 @@ import "../styles/global.css";
     /* background-color: #f5f5f5; */
     background-color: var(--fill-resizer-bg);
     border-radius: var(--resizer-radius);
+    /* border: 4px solid green; */
 
     /* overflow-y: auto; */
     /* padding: 20px; */
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     /* border-right: 1px solid #e0e0e0; */
   }
 
@@ -127,10 +95,11 @@ import "../styles/global.css";
   .resizer::after {
     content: "";
     position: absolute;
-    top: 400px;
+    /* top: 400px; */
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 4px;
+    width: 2px;
     height: 20px;
     background-color: #999;
     border-radius: 16px;

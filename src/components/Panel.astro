@@ -29,13 +29,15 @@ import SectionHeader from "./SectionHeader.astro";
     --panel-radius: 12px;
     --panel-surface: var(--fill-surface-raised);
     --panel-surface-recessed: var(--fill-surface-recessed);
+    --panel-pad-inline: 2rem;
+    --panel-pad-block: 2rem;
   }
 
   .panel {
     /* background-color: rgba(0, 0, 0, 0.05); */
     border-radius: var(--panel-radius);
-    padding-inline: 2rem;
-    padding-block: 2rem;
+    padding-inline: var(--panel-pad-inline);
+    padding-block: var(--panel-pad-block);
   }
 
   .panel__header {
