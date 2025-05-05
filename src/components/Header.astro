@@ -15,7 +15,12 @@ import Button from "./Button.astro";
   <div class="header__tools">
     <Button label="Create a new project" />
     <Button label="Invite more people" />
-    <Button label="Send a ping" />
+    <!-- <Button label="Send a ping" /> -->
+  </div>
+  <div class="header__supplemental">
+    <a href="#">View all projects in a list</a>
+    <a href="#">View templates</a>
+    <a href="#">Press ⌘J to open command palette</a>
   </div>
 </header>
 
@@ -23,25 +28,61 @@ import Button from "./Button.astro";
 {/* Style                              */}
 {/* ================================== */}
 <style is:global>
+  :root {
+    --account-title-size-min: 3rem;
+    --account-title-size-max: 6rem;
+  }
+
   .header {
     container-type: inline-size;
-    border: 1px solid blue;
-
     > * + * {
-      margin-top: 8rem;
+      margin-top: 0.75rem;
     }
   }
 
   .header__title {
-    font-size: 60px;
+    /* font-size: 60px; */
     line-height: 1;
     font-weight: 800;
     text-align: center;
+    font-size: clamp(
+      var(--account-title-size-min),
+      4cqw,
+      var(--account-title-size-max)
+    );
+    letter-spacing: -0.02em;
+    margin-block-end: 0.5em;
   }
 
   .header__tools {
     display: flex;
     justify-content: center;
     gap: 1rem;
+  }
+
+  .header__supplemental {
+    text-align: center;
+    font-size: 14px;
+
+    > a {
+      color: currentColor;
+      position: relative;
+      display: inline-block;
+      text-underline-offset: 2px;
+
+      & + & {
+        margin-left: 16px;
+        &:before {
+          content: "";
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          background-color: currentColor;
+          top: 50%;
+          left: -12px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 </style>
