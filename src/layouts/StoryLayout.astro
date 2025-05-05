@@ -1,0 +1,44 @@
+---
+import BaseNav from "../components/BaseNav.astro";
+import "../styles/global.css";
+const pageTitle = "Home Page";
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <BaseNav />
+    <main>
+      <div class="panel">
+        <h1 class="story__title">{frontmatter.title}</h1>
+        <slot />
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .panel {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: var(--elevation-shadow-2);
+    inline-size: 90%;
+    max-inline-size: 900px;
+    margin-inline: auto;
+    padding: 4rem;
+    min-block-size: 100dvh;
+    margin-block-start: 2rem;
+  }
+
+  .story__title {
+    font-size: 60px;
+  }
+</style>
