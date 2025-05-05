@@ -1,0 +1,34 @@
+---
+import "../styles/global.css";
+const { label = "Click me", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<button class="button">{label}</button>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .button {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border-radius: 99rem;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    white-space: normal;
+    cursor: pointer;
+    outline-offset: 0.4em;
+    background-color: hsl(148.4, 68.8%, 31.4%);
+    border: 0;
+    color: #fff;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script></script>

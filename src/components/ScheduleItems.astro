@@ -1,0 +1,77 @@
+---
+import "../styles/global.css";
+import CardDate from "./CardDate.astro";
+const { title = "I am a title", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="schedule">
+  <div class="schedule__items">
+    <div class="schedule__item">
+      <span class="schedule__date">
+        <CardDate status="on-track" date="Sun, May 4" />
+      </span>
+      <span class="schedule__text">Nothing on the schedule</span>
+    </div>
+
+    <div class="schedule__item">
+      <span class="schedule__date">
+        <CardDate status="on-track" date="Mon, May 5" />
+      </span>
+      <span class="schedule__text">Submit this prototype</span>
+    </div>
+
+    <div class="schedule__item">
+      <span class="schedule__date">
+        <CardDate status="on-track" date="Tues, May 6" />
+      </span>
+      <span class="schedule__text">Wish you could do it again</span>
+    </div>
+    <div class="schedule__item">
+      <span class="schedule__date">
+        <CardDate status="on-track" date="Wed, May 7" />
+      </span>
+      <span class="schedule__text">Mow the yard</span>
+    </div>
+    <div class="schedule__item">
+      <span class="schedule__date">
+        <CardDate status="on-track" date="Thur, May 8" />
+      </span>
+      <span class="schedule__text">Nothing on the schedule</span>
+    </div>
+  </div>
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .schedule {
+    width: 100%;
+    max-inline-size: 500px;
+    margin-inline: auto;
+  }
+
+  .schedule__items {
+  }
+
+  .schedule__item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-block: 0.5rem;
+
+    & + & {
+      border-block-start: 1px solid #bec0c0;
+    }
+  }
+
+  .schedule__date {
+    min-inline-size: 120px;
+  }
+
+  .schedule__text {
+  }
+</style>

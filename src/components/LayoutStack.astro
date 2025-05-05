@@ -1,0 +1,48 @@
+---
+import "../styles/global.css";
+const { distance, ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class:list={["l-stack", `l-stack--distance-${distance}`]}>
+  <slot />
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  :root {
+    --layout-stack-distance: 1rem;
+  }
+
+  .l-stack {
+    display: flex;
+    gap: var(--layout-stack-distance);
+    flex-direction: column;
+  }
+
+  .l-stack--distance-50 {
+    --layout-stack-distance: 0.5rem;
+  }
+  .l-stack--distance-100 {
+    --layout-stack-distance: 1rem;
+  }
+  .l-stack--distance-150 {
+    --layout-stack-distance: 1.5rem;
+  }
+  .l-stack--distance-200 {
+    --layout-stack-distance: 2rem;
+  }
+  .l-stack--distance-250 {
+    --layout-stack-distance: 2.5rem;
+  }
+  .l-stack--distance-300 {
+    --layout-stack-distance: 3rem;
+  }
+  .l-stack--distance-350 {
+    --layout-stack-distance: 3.5rem;
+  }
+</style>

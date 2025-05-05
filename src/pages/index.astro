@@ -2,6 +2,7 @@
 import "../styles/global.css";
 
 import CalGrid from "../svg/calendar-grid.svg";
+import ActivitySvg from "../svg/activity.svg";
 
 import Card from "../components/Card.astro";
 import BaseNav from "../components/BaseNav.astro";
@@ -11,6 +12,15 @@ import Resizer from "../components/Resizer.astro";
 import Header from "../components/Header.astro";
 import Panel from "../components/Panel.astro";
 import Filter from "../components/Filter.astro";
+import SectionHeader from "../components/SectionHeader.astro";
+import CardFrame from "../components/CardFrame.astro";
+import CardContent from "../components/CardContent.astro";
+import StackContent from "../components/StackContent.astro";
+import LayoutGrid from "../components/LayoutGrid.astro";
+import LayoutStack from "../components/LayoutStack.astro";
+import EmptyState from "../components/EmptyState.astro";
+import ScheduleItems from "../components/ScheduleItems.astro";
+import Assignments from "../components/Assignments.astro";
 ---
 
 <html lang="en">
@@ -25,81 +35,170 @@ import Filter from "../components/Filter.astro";
   <body>
     <BaseNav />
 
-    <section class="dump">
-      <Header />
+    <section class="main">
+      <Header title="Grant Prototype" />
+      <section class="top-area">
+        <LayoutGrid>
+          <CardFrame isPinned>
+            <CardContent
+              title="Hello I am a project right here"
+              description="I am a longer description for this card with more words here"
+            />
+          </CardFrame>
+          <CardFrame isStack>
+            <StackContent />
+          </CardFrame>
+          <CardFrame isPinned>
+            <CardContent />
+          </CardFrame>
+          <CardFrame isPinned>
+            <CardContent />
+          </CardFrame>
+          <CardFrame isPinned>
+            <CardContent />
+          </CardFrame>
+        </LayoutGrid>
+      </section>
+
       <Resizer>
-        <Fragment slot="pinned">
-          <Card />
-          <Card />
-          <Card />
-        </Fragment>
+        <!-- <Fragment slot="pinned">
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+          <CardFrame>
+            <CardContent />
+          </CardFrame>
+        </Fragment> -->
 
         <Fragment slot="recents">
-          <div class="grid--vertical">
+          <!-- <div class="grid--vertical">
             <CardHorizontal />
             <CardHorizontal />
             <CardHorizontal />
-          </div>
+          </div> -->
+          <h1 class="headline--recent-projects">Recently Viewed Projects</h1>
+          <LayoutStack distance="350">
+            <LayoutStack distance="100">
+              <SectionHeader align="left" title="today" />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+            </LayoutStack>
+            <LayoutStack distance="100">
+              <SectionHeader align="left" title="yesterday" />
+              <CardHorizontal />
+              <CardHorizontal />
+              <CardHorizontal />
+            </LayoutStack>
+          </LayoutStack>
         </Fragment>
 
         <Fragment slot="aside">
-          <div class="grid--vertical grid--vertical--large">
-            <Panel>
-              <Filter />
-              <Card />
-            </Panel>
-            <Panel><CardDate status="risk" /></Panel>
-            <Panel> <div class="cal-grid--max"><CalGrid /></div></Panel>
-          </div>
-        </Fragment>
+          <LayoutStack distance="150">
+            <EmptyState />
 
-        <Fragment slot="playground">
-          <section class="dump">playground</section>
+            <Panel title="rad cat">
+              <SectionHeader title="John Smith's Activity" />
+            </Panel>
+            <Panel>
+              <SectionHeader title="Activity Monitor" />
+            </Panel>
+
+            <Panel
+              title="Your Assignments"
+              description="Stuff due soon and recently assigned"
+            >
+              <Assignments />
+            </Panel>
+            <Panel title="Your Schedule" description="A few upcoming events">
+              <LayoutStack>
+                <div class="cal-grid--max">
+                  <CalGrid />
+                </div>
+                <ScheduleItems />
+              </LayoutStack>
+            </Panel>
+          </LayoutStack>
+
+          <Fragment slot="playground">
+            <section class="dump">playground</section>
+            <SectionHeader />
+            <SectionHeader align="left" title="Hey Dude" />
+            <SectionHeader title="Hello World" hasRule />
+            <SectionHeader title="Hello World" align="left" hasRule />
+          </Fragment>
         </Fragment>
       </Resizer>
     </section>
-
-    {/* ================================== */}
-    {/* Style                              */}
-    {/* ================================== */}
-    <style is:global>
-      .dump {
-        padding: 4rem;
-
-        & + & {
-          margin-top: 40px;
-        }
-
-        > * + * {
-          margin-top: 40px;
-        }
-      }
-
-      .grid--vertical {
-        display: grid;
-        gap: 0.8rem;
-      }
-
-      .grid--vertical--large {
-        gap: 3rem;
-      }
-
-      .cal-grid--max {
-        margin-inline: auto;
-        inline-size: 100%;
-        max-inline-size: 400px;
-        position: relative;
-
-        &::before {
-          content: "For placement only";
-          position: absolute;
-          top: 50%;
-          left: 25%;
-          font-size: 12px;
-          background-color: rgba(0, 0, 0, 0.6);
-          padding-inline: 2rem;
-        }
-      }
-    </style>
   </body>
 </html>
+
+{/* ================================== */}
+{/* Style                              */}
+{/* ================================== */}
+<style is:global>
+  .main {
+    padding: 4rem;
+    > * + * {
+      margin-top: 40px;
+    }
+  }
+
+  .headline--recent-projects {
+    margin-block-end: 1rem;
+  }
+
+  .grid--vertical--large {
+    gap: 3rem;
+  }
+
+  .cal-grid--max {
+    margin-inline: auto;
+    inline-size: 100%;
+    max-inline-size: 400px;
+    position: relative;
+
+    /* &::before {
+      content: "For placement only";
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      font-size: 12px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding-inline: 2rem;
+    } */
+  }
+
+  .top-area {
+    max-inline-size: 1088px;
+    margin-inline: auto;
+  }
+</style>
+
+{/* ================================== */}
+{/* Javascript                         */}
+{/* ================================== */}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const updateToggles = document.querySelectorAll(".js-update-toggle");
+
+    updateToggles.forEach((toggle) => {
+      // const nearestLink = toggle.closest(".js-card__link");
+      // console.log(nearestLink);
+      // nearestLink.preventDefault();
+      toggle.addEventListener("click", () => {
+        const updatesList = toggle.nextElementSibling;
+
+        if (updatesList && updatesList.classList.contains("js-updates-list")) {
+          updatesList.classList.toggle("active");
+        }
+      });
+    });
+  });
+</script>

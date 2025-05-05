@@ -1,0 +1,53 @@
+---
+import "../styles/global.css";
+import grant from "../images/grant_mug.png";
+import Avatar from "./Avatar.astro";
+const { title = "I am a title", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<ul class="assignments">
+  <li class="assignment todo">
+    <div class="checkbox todo-row">
+      <label class="checkbox__label">
+        <input type="checkbox" class="checkbox__input" />
+        <span class="checkbox__button"></span>
+      </label>
+
+      <div class="checkbox__content">
+        <a href="#">Outline for first episode</a>
+
+        <span class="u-position-context">
+          <span class="todo__date"> Fri, May 9 </span>
+
+          <span class="todo__assignee u-nowrap">
+            <Avatar imgSrc={grant} />
+            Grant S.
+          </span>
+          <span class="todo__inline-edit-positioner">
+            <a
+              class="todo__unassigned-unscheduled"
+              href="/5932659/buckets/41498876/recordings/8518029631/accountability_form/edit?focus=assignees_field"
+              >Assign/Schedule…</a
+            >
+          </span>
+        </span>
+      </div>
+
+      <small class="todo__ancestry metadata txt--subtle u-display-n">
+        Episode 1: One Accordion / Three Ways in Youtube channel
+      </small>
+    </div>
+  </li>
+</ul>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .assignments {
+    list-style: none;
+  }
+</style>

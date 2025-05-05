@@ -1,0 +1,52 @@
+---
+import "../styles/global.css";
+const { title = "I am a title", number = "3", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<a class="card__link" href="#">
+  <div class="card__content card__content--is-stack">
+    <section>
+      <!-- <span class="card__overline">
+        {overline}
+      </span> -->
+
+      <h2 class="card__title card__title--is-stack">
+        {title}
+      </h2>
+
+      <p class="card__description card__description--is-stack">
+        {number} projects
+      </p>
+    </section>
+  </div>
+</a>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .card__content--is-stack {
+    /* display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    block-size: 100%;
+    justify-content: center;
+    text-align: center; */
+    justify-content: center;
+    text-align: center;
+    /* background-color: rgba(122, 50, 190, 0.2); */
+  }
+
+  .card__title--is-stack {
+    --card-title-size-min: 2rem;
+    --card-title-size-max: 4rem;
+  }
+
+  .card__description--is-stack {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+</style>
