@@ -104,27 +104,29 @@ import Assignments from "../components/Assignments.astro";
           <LayoutStack distance="150">
             <EmptyState />
 
-            <Panel title="rad cat">
-              <SectionHeader title="John Smith's Activity" />
-            </Panel>
-            <Panel>
-              <SectionHeader title="Activity Monitor" />
-            </Panel>
+            <LayoutGrid>
+              <Panel title="rad cat">
+                <SectionHeader title="John Smith's Activity" />
+              </Panel>
+              <Panel>
+                <SectionHeader title="Activity Monitor" />
+              </Panel>
 
-            <Panel
-              title="Your Assignments"
-              description="Stuff due soon and recently assigned"
-            >
-              <Assignments />
-            </Panel>
-            <Panel title="Your Schedule" description="A few upcoming events">
-              <LayoutStack>
-                <div class="cal-grid--max">
-                  <CalGrid />
-                </div>
-                <ScheduleItems />
-              </LayoutStack>
-            </Panel>
+              <Panel
+                title="Your Assignments"
+                description="Stuff due soon and recently assigned"
+              >
+                <Assignments />
+              </Panel>
+              <Panel title="Your Schedule" description="A few upcoming events">
+                <LayoutStack>
+                  <div class="cal-grid--max">
+                    <CalGrid />
+                  </div>
+                  <ScheduleItems />
+                </LayoutStack>
+              </Panel>
+            </LayoutGrid>
           </LayoutStack>
 
           <Fragment slot="playground">
