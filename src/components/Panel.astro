@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 
-const { title, description } = Astro.props;
+const { title, description, elevation = "default" } = Astro.props;
 
 import SectionHeader from "./SectionHeader.astro";
 ---
@@ -9,7 +9,7 @@ import SectionHeader from "./SectionHeader.astro";
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<div class="panel">
+<div class:list={["panel", `panel-elevation--${elevation}`]}>
   {
     title && (
       <div class="panel__header">
@@ -27,17 +27,29 @@ import SectionHeader from "./SectionHeader.astro";
 <style is:global>
   :root {
     --panel-radius: 12px;
+    --panel-surface: var(--fill-surface-raised);
+    --panel-surface-recessed: var(--fill-surface-recessed);
+    --panel-pad-inline: 2rem;
+    --panel-pad-block: 2rem;
   }
 
   .panel {
-    background-color: rgba(0, 0, 0, 0.05);
+    /* background-color: rgba(0, 0, 0, 0.05); */
     border-radius: var(--panel-radius);
-    padding-inline: 2rem;
-    padding-block: 2rem;
+    padding-inline: var(--panel-pad-inline);
+    padding-block: var(--panel-pad-block);
   }
 
   .panel__header {
     margin-block-start: -2.75rem;
     margin-block-end: 2rem;
+  }
+
+  .panel-elevation--default {
+    background-color: var(--panel-surface);
+  }
+
+  .panel-elevation--recessed {
+    background-color: var(--panel-surface-recessed);
   }
 </style>

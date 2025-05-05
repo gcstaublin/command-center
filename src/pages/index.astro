@@ -104,27 +104,39 @@ import Assignments from "../components/Assignments.astro";
           <LayoutStack distance="150">
             <EmptyState />
 
-            <Panel title="rad cat">
-              <SectionHeader title="John Smith's Activity" />
-            </Panel>
-            <Panel>
-              <SectionHeader title="Activity Monitor" />
-            </Panel>
+            <LayoutGrid type="bento">
+              <Panel
+                title="John Smith's Activity"
+                description="Here's a glimpse of what John is doing"
+              >
+                <h2>add content</h2>
+              </Panel>
+              <Panel
+                title="YouTube Channel Activity Monitor"
+                description="Here's what's happening in this project"
+              >
+                <h1>add content</h1>
+              </Panel>
 
-            <Panel
-              title="Your Assignments"
-              description="Stuff due soon and recently assigned"
-            >
-              <Assignments />
-            </Panel>
-            <Panel title="Your Schedule" description="A few upcoming events">
-              <LayoutStack>
-                <div class="cal-grid--max">
-                  <CalGrid />
-                </div>
-                <ScheduleItems />
-              </LayoutStack>
-            </Panel>
+              <Panel title="test" elevation="recessed">
+                <h1>Hello</h1>
+              </Panel>
+
+              <Panel
+                title="Your Assignments"
+                description="Stuff due soon and recently assigned"
+              >
+                <Assignments />
+              </Panel>
+              <Panel title="Your Schedule" description="A few upcoming events">
+                <LayoutStack>
+                  <div class="cal-grid--max">
+                    <CalGrid />
+                  </div>
+                  <ScheduleItems />
+                </LayoutStack>
+              </Panel>
+            </LayoutGrid>
           </LayoutStack>
 
           <Fragment slot="playground">
