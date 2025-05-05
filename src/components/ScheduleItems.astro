@@ -49,7 +49,6 @@ const { title = "I am a title", ...attrs } = Astro.props;
 {/* ================================== */}
 <style is:global>
   .schedule {
-    /* border: 1px solid green; */
     width: 100%;
     max-inline-size: 500px;
     margin-inline: auto;
@@ -62,12 +61,10 @@ const { title = "I am a title", ...attrs } = Astro.props;
     display: flex;
     gap: 1rem;
     align-items: center;
-    padding-block: 1rem;
+    padding-block: 0.5rem;
 
     & + & {
-      border-block-start: 1px solid currentColor;
-      /* margin-top: 0.5rem; */
-      /* padding-top: 0.5rem; */
+      border-block-start: 1px solid #bec0c0;
     }
   }
 

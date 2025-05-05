@@ -57,6 +57,7 @@ const {
     --color-fg-dim: #747575;
     --card-title-size-min: 1.3rem;
     --card-title-size-max: 2rem;
+    --card-title-size-relative: 5cqw;
     --card-title-font-weight: 700;
     --card-color-contrast: #2a373e;
     --card-color-dim: #747575;
@@ -90,7 +91,7 @@ const {
     line-height: 1.1;
     font-size: clamp(
       var(--card-title-size-min),
-      3cqw,
+      var(--card-title-size-relative),
       var(--card-title-size-max)
     );
   }

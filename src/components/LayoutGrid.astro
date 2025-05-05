@@ -21,7 +21,8 @@ const { maxCols = "3", ...attrs } = Astro.props;
   .l-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     /* border: 2px solid black; */
   }
 

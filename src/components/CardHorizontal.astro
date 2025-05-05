@@ -11,7 +11,7 @@ import CardUpdates from "./CardUpdates.astro";
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<article class="card">
+<article class="card card--horizontal">
   <div class="card__content card__pad">
     <div class="card__header">
       <!-- <span class="card__overline">OVERLINExxxx</span> -->
@@ -63,10 +63,16 @@ import CardUpdates from "./CardUpdates.astro";
     width: 100%;
     /* max-width: 500px; */
     background-color: var(--card-fill-surface);
-    border-radius: 12px;
+    border-radius: var(--card-frame-radius);
     box-shadow: var(--elevation-shadow-1);
     overflow: hidden;
     position: relative;
+  }
+
+  .card--horizontal {
+    --card-title-size-min: 1rem;
+    --card-title-size-max: 1.5rem;
+    --card-title-size-relative: 2cqw;
   }
 
   .card__content {

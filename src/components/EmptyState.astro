@@ -14,27 +14,25 @@ const {
 {/* HTML Structure                     */}
 {/* ================================== */}
 <div class="empty-state">
-  <div class="empty-state__icon">
-    <ActivitySvg />
-  </div>
-  <LayoutStack>
-    <header class="empty-state__header">
-      <h3 class="empty-state__title">
-        {title}
-      </h3>
-    </header>
-    <div class="empty-state__content">
-      <LayoutStack>
-        <div>
-          <p>
-            To add a new Activity Monitor, start typing in the search box to
-            find the project you want to keep an eye on.
-          </p>
-          <p>
-            Once you select a project, you'll be able to refine the monitor to
-            only show you what you immediately care about.
-          </p>
-        </div>
+  <div class="empty-state__inner">
+    <div class="empty-state__icon">
+      <ActivitySvg />
+    </div>
+    <LayoutStack distance="50">
+      <header class="empty-state__header">
+        <h3 class="empty-state__title">
+          {title}
+        </h3>
+      </header>
+      <div class="empty-state__content">
+        <p>
+          To add a new Activity Monitor, start typing in the search box to find
+          the project you want to keep an eye on.
+        </p>
+        <p>
+          Once you select a project, you'll be able to refine the monitor to
+          only show you what you immediately care about.
+        </p>
         <div class="empty-state__form">
           <input
             placeholder="Search for a project"
@@ -42,9 +40,9 @@ const {
             type="search"
           />
         </div>
-      </LayoutStack>
-    </div>
-  </LayoutStack>
+      </div>
+    </LayoutStack>
+  </div>
 </div>
 
 {/* ================================== */}
@@ -52,13 +50,18 @@ const {
 {/* ================================== */}
 <style is:global>
   .empty-state {
+    padding: 2rem;
+    /* border: 1px dotted rgba(0, 0, 0, 0.5); */
+    border: 1px dashed #bec0c0;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .empty-state__inner {
     display: flex;
     gap: 1rem;
-    /* background-color: yellow; */
-    padding: 1rem;
-    border: 1px dotted rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.5);
+    max-inline-size: 700px;
+    margin-inline: auto;
   }
 
   .empty-state__header {
@@ -68,9 +71,10 @@ const {
   }
 
   .empty-state__icon {
-    color: var(--color-fg-dim);
-    block-size: 24px;
-    inline-size: 24px;
+    /* color: var(--color-fg-dim); */
+    color: #bec0c0;
+    block-size: 30px;
+    inline-size: 30px;
     flex-shrink: 0;
   }
 
@@ -83,7 +87,11 @@ const {
     font-size: inherit;
     color: inherit;
     padding: 0.5rem;
-    border: 1px solid pink;
+    border: 1px solid #bec0c0;
+  }
+
+  .empty-state__form {
+    margin-block-start: 1rem;
   }
 </style>
 
