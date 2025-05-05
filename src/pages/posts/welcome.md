@@ -2,12 +2,6 @@
 layout: ../../layouts/StoryLayout.astro
 
 title: "Welcome to Home Base"
-description: "This is the first post of my new Astro blog."
-author: "Grant"
-image:
-  url: "https://docs.astro.build/assets/rose.webp"
-  alt: "The Astro logo on a dark background with a pink glow."
-tags: ["astro", "blogging", "learning in public"]
 ---
 
 Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.xxxx
@@ -68,18 +62,10 @@ This has been a fun project. Y'all will decide whether I brought enough ...
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+![ A test image](../../images/horizontal-card.png)
 
 I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
-![ A test image](../../images/ad_mug.png)
+I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
 
 ![ A test image](../../images/dumb-decision.png)
-
-# H1 headline
-
-## H2 headline
-
-### H3 headline
-
-#### H4 Headline

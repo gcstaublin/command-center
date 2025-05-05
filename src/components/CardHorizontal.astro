@@ -6,6 +6,8 @@ import Pin from "../svg/pin.svg";
 import AvatarStack from "./AvatarStack.astro";
 import CardDate from "./CardDate.astro";
 import CardUpdates from "./CardUpdates.astro";
+
+const { title = "My project title", hasUpdates } = Astro.props;
 ---
 
 {/* ================================== */}
@@ -15,7 +17,9 @@ import CardUpdates from "./CardUpdates.astro";
   <div class="card__content card__pad">
     <div class="card__header">
       <!-- <span class="card__overline">OVERLINExxxx</span> -->
-      <h2 class="card__title">Project Title</h2>
+      <a href="/posts/welcome">
+        <h2 class="card__title">{title}</h2>
+      </a>
       <!-- <p class="card__description">Project description goes here</p> -->
     </div>
 
@@ -81,6 +85,9 @@ import CardUpdates from "./CardUpdates.astro";
 
   .card__header {
     /* margin-bottom: 20px; */
+    a {
+      text-decoration: none;
+    }
   }
 
   .card__overline {

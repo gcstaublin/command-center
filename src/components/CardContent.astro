@@ -9,8 +9,9 @@ import CardDate from "./CardDate.astro";
 const {
   title = "I am a title",
   description = "I am description",
-  overline = "Overline",
-  link = "#",
+  overline,
+  hasUpdates,
+  link = "/posts/welcome",
   ...attrs
 } = Astro.props;
 ---
@@ -39,9 +40,13 @@ const {
       <CardDate />
     </section>
   </a>
-  <div class="card__footer card__pad">
-    <CardUpdates />
-  </div>
+  {
+    hasUpdates && (
+      <div class="card__footer card__pad">
+        <CardUpdates />
+      </div>
+    )
+  }
 
   <div class="card__controls">
     <button class="card__pin">

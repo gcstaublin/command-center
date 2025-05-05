@@ -17,7 +17,7 @@ const { frontmatter } = Astro.props;
   <body>
     <BaseNav />
     <main>
-      <div class="panel">
+      <div class="panel story">
         <h1 class="story__title">{frontmatter.title}</h1>
         <slot />
       </div>
@@ -25,20 +25,65 @@ const { frontmatter } = Astro.props;
   </body>
 </html>
 
-<style>
+<style is:global>
+  :root {
+    --story-fill-bg: rgba(0, 0, 0, 0.08);
+    --story-fill-border: rgba(0, 0, 0, 0.2);
+  }
+
   .panel {
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-    box-shadow: var(--elevation-shadow-2);
+    background-color: var(--story-fill-bg);
+    border-radius: 20px 20px 0 0;
+    box-shadow: var(--elevation-shadow-1);
     inline-size: 90%;
     max-inline-size: 900px;
     margin-inline: auto;
-    padding: 4rem;
+    padding: 3rem 6rem;
     min-block-size: 100dvh;
     margin-block-start: 2rem;
   }
 
   .story__title {
-    font-size: 60px;
+    font-size: 48px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-block-end: 2rem;
   }
+
+  .story p + p {
+    margin-block-start: 0.85em;
+  }
+
+  .story * + * {
+    margin-block: 0.25em;
+  }
+
+  .story h1,
+  .story h2,
+  .story h3,
+  .story h4,
+  .story h5,
+  .story h6 {
+    margin-block: 0.5em;
+    letter-spacing: -0.015em;
+  }
+
+  .story img {
+    display: block;
+    margin-inline: auto;
+    margin-block: 2rem;
+    inline-size: 85%;
+    max-inline-size: 650px;
+    block-size: auto;
+  }
+
+  .story h2 {
+    border-block-start: 1px solid var(--story-fill-border);
+    margin-block-start: 2rem;
+    padding-block-start: 1rem;
+  }
+
+  /* .story p + p {
+    margin-block-start: 1em;
+  } */
 </style>
