@@ -38,7 +38,10 @@ import EmptyState from "../components/EmptyState.astro";
       <section class="top-area">
         <LayoutGrid>
           <CardFrame isPinned>
-            <CardContent title="Hello" />
+            <CardContent
+              title="Hello I am a project right here"
+              description="I am a longer description for this card with more words here"
+            />
           </CardFrame>
           <CardFrame isStack>
             <StackContent />
@@ -97,7 +100,8 @@ import EmptyState from "../components/EmptyState.astro";
         <Fragment slot="aside">
           <LayoutStack>
             <EmptyState />
-            <Panel>
+
+            <Panel title="rad cat">
               <SectionHeader title="John Smith's Activity" />
             </Panel>
             <Panel>
@@ -105,11 +109,9 @@ import EmptyState from "../components/EmptyState.astro";
             </Panel>
             <Panel>
               <SectionHeader title="Your Assignments" />
-              <CalGrid />
-              <ActivitySvg />
             </Panel>
-            <Panel>
-              <SectionHeader title="Your Schedule" />
+            <Panel title="Your Schedule">
+              <CalGrid />
             </Panel>
           </LayoutStack>
 

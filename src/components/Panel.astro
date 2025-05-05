@@ -1,11 +1,23 @@
 ---
 import "../styles/global.css";
+
+const { title } = Astro.props;
+
+import SectionHeader from "./SectionHeader.astro";
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
 <div class="panel">
+  {
+    title && (
+      <div class="panel__header">
+        <SectionHeader title={title} />
+      </div>
+    )
+  }
+
   <slot />
 </div>
 
@@ -13,11 +25,19 @@ import "../styles/global.css";
 {/* Style                              */}
 {/* ================================== */}
 <style is:global>
+  :root {
+    --panel-radius: 12px;
+  }
+
   .panel {
     background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 20px;
-    min-height: 400px;
-    padding-inline: 3rem;
-    padding-block: 3rem;
+    border-radius: var(--panel-radius);
+    padding-inline: 2rem;
+    padding-block: 2rem;
+  }
+
+  .panel__header {
+    margin-block-start: -2.75rem;
+    margin-block-end: 2rem;
   }
 </style>
