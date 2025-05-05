@@ -89,20 +89,34 @@ import "../styles/global.css";
     /* background-color: #ccc; */
 
     &::after {
-      background-color: red;
+      background-color: var(--color-action);
     }
+  }
+
+  .resizer:before {
+    content: "";
+    position: absolute;
+    top: 5%;
+    bottom: 5%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+    width: 1px;
+    /* height: 20px; */
+    background-color: rgba(71, 71, 71, 0.2);
+    border-radius: 16px;
   }
 
   .resizer::after {
     content: "";
     position: absolute;
+    z-index: 1;
     /* top: 400px; */
-    top: 15%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 2px;
-    height: 20px;
-    background-color: #999;
+    width: 3px;
+    height: 100px;
+    background-color: #bbbbbb;
     border-radius: 16px;
   }
 
