@@ -1,12 +1,17 @@
 ---
 import "../styles/global.css";
-const { title = "I am a title", number = "3", ...attrs } = Astro.props;
+const {
+  title = "I am a title",
+  number = "3",
+  link = "/posts/welcome",
+  ...attrs
+} = Astro.props;
 ---
 
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<a class="card__link" href="#">
+<a class="card__link" href={link}>
   <div class="card__content card__content--is-stack">
     <section>
       <!-- <span class="card__overline">

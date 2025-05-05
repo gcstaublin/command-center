@@ -11,7 +11,6 @@ import CardDate from "../components/CardDate.astro";
 import Resizer from "../components/Resizer.astro";
 import Header from "../components/Header.astro";
 import Panel from "../components/Panel.astro";
-import Filter from "../components/Filter.astro";
 import SectionHeader from "../components/SectionHeader.astro";
 import CardFrame from "../components/CardFrame.astro";
 import CardContent from "../components/CardContent.astro";
@@ -41,24 +40,36 @@ import RecentButtons from "../components/RecentButtons.astro";
       <Header title="Grant Prototype" />
       <section class="top-area">
         <LayoutGrid>
+          <CardFrame isStack>
+            <StackContent link="/posts/welcome" title="Welcome to Home Base" />
+          </CardFrame>
           <CardFrame isPinned>
             <CardContent
-              title="A test story"
-              description="This is a test markdown story"
-              link="/posts/test"
+              title="The Leto Locator"
+              description="New software and hardware built for locating and securing Leto Products."
+              overline="Leto Brand"
             />
           </CardFrame>
-          <CardFrame isStack>
-            <StackContent />
+
+          <CardFrame isPinned>
+            <CardContent
+              title="Honcho Recruiting and Hiring"
+              description="Looking for the best!"
+              hasUpdates
+            />
           </CardFrame>
           <CardFrame isPinned>
-            <CardContent />
+            <CardContent
+              title="Getting Started"
+              description="Quickly get up to speed with everything Basecamp"
+              hasUpdates
+            />
           </CardFrame>
           <CardFrame isPinned>
-            <CardContent />
-          </CardFrame>
-          <CardFrame isPinned>
-            <CardContent />
+            <CardContent
+              title="Making a Podcast"
+              description="This is a sample project to showcase how we use Basecamp to create the 37signals podcast"
+            />
           </CardFrame>
         </LayoutGrid>
       </section>
@@ -87,18 +98,26 @@ import RecentButtons from "../components/RecentButtons.astro";
             <RecentButtons />
             <LayoutStack distance="100">
               <SectionHeader align="left" title="today" />
-              <CardHorizontal />
-              <CardHorizontal />
-              <CardHorizontal />
-              <CardHorizontal />
-              <CardHorizontal />
-              <CardHorizontal />
+              <CardHorizontal title="ACAD25_038 Curry Connector Logo" />
+              <CardHorizontal title="ADM25_176 FAFAS Reminder Postcard" />
+              <CardHorizontal title="Campus Map Updates to be Made" />
+              <CardHorizontal
+                title="ADM25_179 Transfer Student Postcard Update"
+              />
+              <CardHorizontal title="ACAD25_007 School of Biz + Tech Banners" />
+              <CardHorizontal
+                title="ADM25_055 Grad Student Financial Services"
+              />
             </LayoutStack>
             <LayoutStack distance="100">
               <SectionHeader align="left" title="yesterday" />
-              <CardHorizontal />
-              <CardHorizontal />
-              <CardHorizontal />
+              <CardHorizontal title="What Works [ 2023 ]" />
+              <CardHorizontal title="October 2023 Meet-up" />
+              <CardHorizontal title="Customer Support" />
+              <CardHorizontal title="All Pets" />
+              <CardHorizontal title="37signals HQ" />
+              <CardHorizontal title="Product" />
+              <CardHorizontal title="QA" />
             </LayoutStack>
           </LayoutStack>
         </Fragment>
@@ -109,16 +128,16 @@ import RecentButtons from "../components/RecentButtons.astro";
 
             <LayoutGrid type="bento">
               <Panel
-                title="John Smith Monitor"
-                description="Here's a glimpse of what John is doing"
-              >
-                <ActivityFeed showNew />
-              </Panel>
-              <Panel
-                title="YouTube Channel Monitor"
+                title="YouTube Channel Feed"
                 description="Here's what's happening in this project"
               >
                 <ActivityFeed showNeedle />
+              </Panel>
+              <Panel
+                title="John Smith Feed"
+                description="Here's a glimpse of what John is doing"
+              >
+                <ActivityFeed showNew />
               </Panel>
 
               <EmptyState
@@ -147,14 +166,6 @@ import RecentButtons from "../components/RecentButtons.astro";
               </Panel>
             </LayoutGrid>
           </LayoutStack>
-
-          <Fragment slot="playground">
-            <section class="dump">playground</section>
-            <SectionHeader />
-            <SectionHeader align="left" title="Hey Dude" />
-            <SectionHeader title="Hello World" hasRule />
-            <SectionHeader title="Hello World" align="left" hasRule />
-          </Fragment>
         </Fragment>
       </Resizer>
     </main>
