@@ -11,7 +11,7 @@ import CardUpdates from "./CardUpdates.astro";
 {/* ================================== */}
 {/* HTML Structure                     */}
 {/* ================================== */}
-<div class="card">
+<article class="card">
   <div class="card__content card__pad">
     <div class="card__header">
       <span class="card__overline">OVERLINExxxx</span>
@@ -19,21 +19,6 @@ import CardUpdates from "./CardUpdates.astro";
       <p class="card__description">Project description goes here</p>
     </div>
 
-    <!-- <div class="updates-section">
-      <div class="updates-header" id="updates-toggle">
-        <span class="updates-count">12 new updates</span>, last updated 30
-        minutes ago
-      </div>
-      <div class="updates-list" id="updates-list">
-        <ul>
-          <li>On Schedule, Grant S. added. Test zoom</li>
-          <li>Grant S. answered: What the deal?</li>
-          <li>Grant S. started an automatic check-in: What the deal?</li>
-          <li>On Card Table, Grant S. added: Rad Card</li>
-          <li>See all updates</li>
-        </ul>
-      </div>
-    </div> -->
     <div class="card__controls">
       <AvatarStack number="88" />
       <button class="card__pin">
@@ -41,21 +26,6 @@ import CardUpdates from "./CardUpdates.astro";
       </button>
     </div>
 
-    <!-- <div class="svg-test">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-        <g clip-path="url(#a)">
-          <path
-            fill="#999"
-            d="M6.17 9.34 9.54 3.5C8.38 2.21 7.99.97 8.34.36c1.08-1.87 11.25 4 10.17 5.88-.32.55-1.6.85-3.31.51l-3.38 5.85c1.22 1.19 1.66 2.34 1.13 3.26-.5.87-2.95.07-5.33-1.22v.01l-1.96 3.39c-.36.62-1.56 2.11-1.87 1.93-.31-.18.38-1.96.74-2.59l1.96-3.39s0-.01.01-.01c-2.31-1.41-4.22-3.14-3.72-4 .53-.91 1.75-1.1 3.39-.64Z"
-            opacity=".67"></path>
-        </g>
-        <defs>
-          <clipPath id="a">
-            <path fill="#fff" d="M0 0h20v20H0z"></path>
-          </clipPath>
-        </defs>
-      </svg>
-    </div> -->
     <div class="card__footer card__pad">
       <CardUpdates />
       <div class="date-container">
@@ -63,33 +33,7 @@ import CardUpdates from "./CardUpdates.astro";
       </div>
     </div>
   </div>
-  <!-- <div class="card__footer card__pad">
-    <div class="updates-section">
-      <div class="updates__header js-update-toggle" id="updates-toggle">
-        <span class="updates__count">12 new updates</span>, last updated 30
-        minutes ago
-      </div>
-      <div class="updates-list js-updates-list" id="updates-list">
-        <ul class="updates-list__items">
-          <li class="updates-list__item">
-            On Schedule, Grant S. added. Test zoom
-          </li>
-          <li class="updates-list__item">Grant S. answered: What the deal?</li>
-          <li class="updates-list__item">
-            Grant S. started an automatic check-in: What the deal?
-          </li>
-          <li class="updates-list__item">
-            On Card Table, Grant S. added: Rad Card
-          </li>
-          <li class="updates-list__item">See all updates</li>
-        </ul>
-      </div>
-    </div>
-    <div class="date-container">
-      <CardDate />
-    </div>
-  </div> -->
-</div>
+</article>
 
 {/* ================================== */}
 {/* Style                              */}
@@ -120,7 +64,7 @@ import CardUpdates from "./CardUpdates.astro";
     /* max-width: 500px; */
     background-color: var(--card-fill-surface);
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--elevation-shadow-1);
     overflow: hidden;
     position: relative;
   }
