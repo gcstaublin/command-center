@@ -10,6 +10,7 @@ const {
   title = "I am a title",
   description = "I am description",
   overline = "Overline",
+  link = "#",
   ...attrs
 } = Astro.props;
 ---
@@ -18,7 +19,7 @@ const {
 {/* HTML Structure                     */}
 {/* ================================== */}
 <div class="card__content">
-  <a class="card__link js-card__link" href="#">
+  <a class="card__link js-card__link" href={link}>
     <section class="card__text-content">
       <span class="card__overline">
         {overline}
