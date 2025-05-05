@@ -1,0 +1,65 @@
+---
+import "../styles/global.css";
+const { title = "I am a title", ...attrs } = Astro.props;
+---
+
+{/* ================================== */}
+{/* HTML Structure                     */}
+{/* ================================== */}
+<div class="xxx" id="updates-list">
+  <div class="activity__new">
+    <button class="activity__button">Show 14 updates</button>
+  </div>
+  <ul class="updates__items updates-list__items">
+    <li class="updates__item updates-list__item">
+      <a href="#">On Schedule</a>, Grant S. added. Test zoom
+    </li>
+    <li class="updates__item updates-list__item">
+      Grant S. answered: <a href="#">What the deal? </a>
+      <li class="updates__item updates-list__item">
+        Grant S. started an automatic check-in: <a href="#">What the deal?</a>
+      </li>
+      <li class="updates__item updates-list__item">
+        <a href="#">On Card Table</a>, Grant S. added: Rad Card
+      </li>
+    </li>
+  </ul>
+  <a class="updates__link" href="#">See all activity</a>
+</div>
+
+{/* ================================== */}
+{/* CSS Style                          */}
+{/* ================================== */}
+<style is:global>
+  .xxx {
+    --updates-color-border: red;
+  }
+
+  .activity__new {
+    /* background-color: rgba(255, 255, 255, 0.4); */
+    /* background-color: var(--fill-surface-recessed); */
+    /* border-block-start: 1px solid black; */
+    /* border-block-end: 1px solid black; */
+    /* text-align: center; */
+    /* margin-inline-start: -2rem; */
+    /* margin-inline-end: -2rem; */
+    /* padding-block: 0.55em;
+    margin-block-end: 2em; */
+    /* font-size: 14px; */
+    /* border-radius: 4px; */
+  }
+
+  .activity__button {
+    display: block;
+    inline-size: 100%;
+    font-size: 14px;
+    background-color: var(--fill-surface-recessed);
+    border: 0;
+    /* padding-block: 0.3em; */
+    /* padding-inline: 0.8em; */
+    cursor: pointer;
+    padding-block: 0.55em;
+    margin-block-end: 2em;
+    border-radius: 4px;
+  }
+</style>
