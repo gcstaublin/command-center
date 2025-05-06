@@ -40,19 +40,27 @@ Here's a quick run down of the features of Home Base
 
 Clearly, I didn't change the Pinned area of the Home screen. Based on gut instinct, I feel like the Pinned area is an important organizing tool for users. If I took it away in the prototype, I feel like, it would either need to be brought back, or we'd need to create a new feature to give people a space like the current Pinned area. Again, this is purely a gut feeling that might likely be wrong.
 
-Also, this in process shows the fundamental problem that exists with my next idea streaming updates into the project cards. This is one of the many things I considered changing or finding a better alternative for. I didn't want to create a Home Screen full of popovers, which doesn't feel like Basecamp.
+Also, this in process image(above) shows the fundamental problem that exists with my next idea streaming updates into the project cards. With the current solution, things get wonky when a user clicks on the updates available within one Pinned project.
+
+This is one of the many things I considered changing or finding a better alternative for. I didn't want to create a Home Screen full of popovers, which doesn't feel like Basecamp. So for now, this idea stands, waiting for a better option.
 
 ![ A test image](../../images/dynamic-card.png)
 
 ### Data flowing into Project Cards
 
-I spent entirely too much time thinking about the project cards on the Home screen. Rather than coming up with a design that completely rethought them, or even removed them, I wanted to find ways of making them more informative. I also started with the horizontal card, which ultimately became an issue when I decided to preserve the Pinned area.
+I spent entirely too much time thinking about the project cards on the Home screen. Rather than coming up with an overall design that completely rethought them, or even removed them, I wanted to find ways of making project cards more informative.
 
-- **Due Dates:** If a project has due date associated with it, the calendar appears. I toyed around with ideas surface the Needle on the card, as well, but ultimately landed on an idea where the calendar can be colored according to the Needle status of the project. It's a subtle nod.
+In the visual design process, I also started with the horizontal card, which ultimately became an issue when I decided to preserve the Pinned area.
 
-- **Updates:** I feel like the success of this idea could depend on the organization and their metabolism. This could be helpful, or a wildly loud mess.
+I had another early idea to surface notication dots on cards (below). I didn't like that this only showed you that there were updates, rather than there being updates you can glance at and decide whether you needed glance at.
 
-- **People:** At various points, I removed the people from the project cards. I kept coming back to them. There's some interesting visual importance when you see a project full of faces, next to other projects with only a few faces. As soon as I removed them, I added them back in.
+![ A test image](../../images/card-notification.png)
+
+- **Due Dates:** If a project has due date associated with it, the calendar appears. I also toyed around with ideas to surface the Needle on the card, but ultimately landed on an idea where the calendar can be color coded according to Needle status. It's a subtle nod.
+
+- **Updates:** I feel like the success of this idea could depend on the organization and the metabolism of their projects. Updates within project cards could easily turn into a loud mess.
+
+- **People:** At various points in my process, I removed the people from project cards. I kept coming back to them. There's an interesting visual rhythm when you're scanning projects on your home screen. Seeing a three person projects next to a 40 person project indicates a sense of priority or importance.
 
 ![ A test image](../../images/recent-control.png)
 
@@ -60,19 +68,19 @@ I spent entirely too much time thinking about the project cards on the Home scre
 
 I think it was Saturday morning when I finally figured out the organizing principle of the Recent section. This was, coincidentally, the morning I upgraded from a free account to a paid account. I guess if I wasn't so cheap, I would have figured that out on day 1 rather than day 5.
 
-I conducted three, quick customer conversations early in my process, and they all immediately jumped to all projects when they wanted to find something. I began wondering how we might insert some more control into the recents. The thinking behind the custom option is that a user would be able to reorganize the list of projects as they preferred. Almost like a secondary pinned area.
+I conducted three customer conversations early in my process, and they all immediately jumped to all projects when they wanted to find something. I began wondering how we might insert some control into the recents. The thinking behind the custom option is that a user would be able to reorganize the list of projects as they preferred, which might honestly be too much like Pinned.
 
 ### Granular Feeds
 
 ![ A test image](../../images/feed.png)
 
-Early on, I was thinking about a more standard feed, that flows in all the information with maybe some controls to remove all of a give content type like comments. I kept wondering if there was a meaningful way to surface a specific content type from one project and another content type from project.
+Early on, I was thinking about a more standard feed, that flows in all the information with the requisite controls to remove all of a given content type like, say, comments. I kept wondering if there was a meaningful way to surface a specific content type from one project and another specific content type from a different project.
 
 ### The Resizer
 
 ![ A test image](../../images/resizer.png)
 
-This is an interesting idea. If I wasn't three hours from deadline, I likely would be ripping this out and replacing it with some sort of layout chooser that maintains the spirit of the resizer in a potentiall more logical manner.
+This is an interesting idea. If I wasn't three hours from deadline, I likely would be ripping this out and replacing it with some sort of layout chooser that maintains the spirit of the resizer in a potentially more logical manner. Still, I like the option of giving the user control.
 
 ## The Process
 
@@ -82,23 +90,23 @@ This is an interesting idea. If I wasn't three hours from deadline, I likely wou
 
 When I received the challenge Tuesday morning, I read it a few times. I went for a long walk and talked to myself alot. I quickly decided I wanted to talk to some real users, and see how they use Basecamp on daily basis.
 
-My wife and her team at Curry College use Basecamp so I was easily able to have a few conversations from Tuesday evening to Thursday afternoon.
+My wife and her team at Curry College use Basecamp so I was easily able to have a few conversations by Thursday afternoon.
 
-In the first couple days, there wasn't a lot of _design_ happening outside of lots of notes scribbled on paper, as well as really low-fi pen sketches on paper.
+Over the first couple days, there wasn't a lot of _design_ happening outside of scribbled notes and low-fi ink sketches. I guess the real design process kicked off Friday.
 
 ![ A test image](../../images/sketches-notes.png)
 
 ### Design + Build (Days 4 – 7)
 
-Most design was done in the browser. I did some basic sketches in Figma, but the only real bit of visual design I worked out was fleshing out how the horizontal card would look and act.
+Most design was done in the browser. I did some rough sketches in Figma to get a sense where I thought I wanted to go. The only real bit of visual design I worked out in Figma was fleshing out how the horizontal card (below) would look and act.
 
 ![ A test image](../../images/horizontal-card.png)
 
 ### Not feeling the vibe
 
-For the bits of design I created in Figma, like the horizontal card, I attempted to upload a screen shot of my design into Vercel's v0. This was an interesting experiment. It quickly spit something out that I could quickly see in a browser. But, I probably spent more time re-writing and re-naming and re-structing that code, that I don't think it was worth the effort.
+For the bits of design I created in Figma, like the horizontal card, I attempted to upload a screen shot of my design into Vercel's v0. This was an interesting experiment. It quickly spit something out something I could see in the browser. But, I probably spent more time re-writing and re-naming and re-structing that code than if I'd skipped this experiment. As interesting as the AI tools are, in this case, it didn't feel worth the effort.
 
-The Resizer JS **is** copy pasta. I looked at it a couple times, thinking I'd take a crack at rewriting it, but more prevailing priorities took precedence. I seriously considered just ripping that out, but left it in as a conceptual idea, even if it doesn't represent _my work_.
+On the other hand, The Resizer JS **is** copy pasta. I looked at it a couple times, thinking I'd take a crack at rewriting it, but more prevailing priorities took precedence. I seriously considered just ripping that out, but left it in as a conceptual idea, even if it doesn't represent _my work_.
 
 ## Name change
 
